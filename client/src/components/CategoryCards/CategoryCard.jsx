@@ -9,7 +9,7 @@ const Container = styled.div`
 `
 
 const Image = styled.img`
-	width: 275px;
+	width: 500px;
 	height: 100%;
 	object-fit: cover;
 `
@@ -27,7 +27,7 @@ const Info = styled.div`
 	background-color: #00000011;
 `
 
-const Title = styled.h2`
+const Title = styled.h1`
 	color: white;
 	text-shadow: 0px 2px 4px black;
 	text-align: center;

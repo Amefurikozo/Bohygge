@@ -5,9 +5,9 @@ import CategoryCard from './CategoryCard'
 const Container = styled.div`
 	width: 100%;
 	height: fit-content;
-	padding: 10px;
+	padding: 60px;
 	display: flex;
-	justify-content: space-around;
+	justify-content: center;
 	flex-wrap: wrap;
 `
 
