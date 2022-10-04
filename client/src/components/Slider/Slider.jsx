@@ -99,7 +99,7 @@ const Slider = () => {
 		<Container>
 			<Wrapper slideIndex={slideIndex}>
 				{sliderItems.map((item) => (
-					<Slide>
+					<Slide key={item.id}>
 						<ImgContainer>
 							<Arrow direction="left" onClick={() => handleClick('left')}>
 								<ArrowBackIcon />
