@@ -57,10 +57,13 @@ const Right = styled.div`
 const MenuLink = styled.div`
 	display: flex;
 	align-items: center;
+	justify-content: center;
 	font-size: 16px;
 	cursor: pointer;
 	font-variant: small-caps;
 	margin-left: 15px;
+	width: 70px;
+	height: 40px;
 `
 
 const Navbar = () => {

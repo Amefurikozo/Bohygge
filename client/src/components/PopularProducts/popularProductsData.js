@@ -11,33 +11,41 @@ export const popularProductsData = [
 	{
 		id: 1,
 		img: slide1,
+		price: '',
 	},
 	{
 		id: 2,
 		img: slide2,
+		price: '',
 	},
 	{
 		id: 3,
 		img: slide3,
+		price: '',
 	},
 	{
 		id: 4,
 		img: slide4,
+		price: '',
 	},
 	{
 		id: 5,
 		img: slide5,
+		price: '',
 	},
 	{
 		id: 6,
 		img: slide6,
+		price: '',
 	},
 	{
 		id: 7,
 		img: slide7,
+		price: '',
 	},
 	{
 		id: 8,
 		img: slide8,
+		price: '',
 	},
 ]

@@ -78,6 +78,10 @@ const Arrow = styled.div`
 
 	left: ${(props) => props.direction === 'left' && '20px'};
 	right: ${(props) => props.direction === 'right' && '20px'};
+
+	&:hover {
+		opacity: 1;
+	}
 `
 
 const Slider = () => {

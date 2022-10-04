@@ -6,14 +6,13 @@ const Container = styled.div`
 	height: 500px;
 	position: relative;
 	display: flex;
+	cursor: pointer;
 `
-
 const Image = styled.img`
 	width: 500px;
 	height: 100%;
 	object-fit: cover;
 `
-
 const Info = styled.div`
 	position: absolute;
 	top: 0;
@@ -25,12 +24,21 @@ const Info = styled.div`
 	align-items: center;
 	justify-content: center;
 	background-color: #00000011;
+	transition: all 300ms;
+	&:hover {
+		background-color: #00000055;
+		transition: all 300ms;
+	}
+	&:hover ${Title} {
+		font-size: 36px;
+		transition: all 300ms;
+	}
 `
-
 const Title = styled.h1`
 	color: white;
 	text-shadow: 0px 2px 4px black;
 	text-align: center;
+	transition: all 300ms;
 `
 
 const CategoryCard = ({ item }) => {

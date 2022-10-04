@@ -22,8 +22,9 @@
 }
 
 .tagStyle:hover {
-	width: 35px;
-	height: 35px;
+	width: 46px;
+	height: 46px;
+	border-radius: 23px;
 	font-size: 0px;
 	transition: all 300ms ease;
 }
