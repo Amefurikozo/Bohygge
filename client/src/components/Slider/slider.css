@@ -1,0 +1,76 @@
+/* IMAGE TAG STYLING */
+.tagStyle {
+	width: 40px;
+	height: 40px;
+	border: 3px solid white;
+	border-radius: 20px;
+	font-size: 32px;
+	background-color: white;
+	color: black;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	z-index: 99;
+	position: absolute;
+	top: 0;
+	bottom: 0;
+	left: 0;
+	right: 0;
+	margin: auto;
+	cursor: pointer;
+	transition: all 300ms ease;
+}
+
+.tagStyle:hover {
+	width: 35px;
+	height: 35px;
+	font-size: 0px;
+	transition: all 300ms ease;
+}
+
+/* POSITION-TAG 0 */
+.imageTag0-1 {
+	left: -350px;
+	top: 80px;
+}
+.imageTag0-2 {
+	left: -200px;
+	top: 350px;
+}
+.imageTag0-3 {
+	left: 500px;
+	top: 220px;
+}
+
+/* POSITION-TAG 1 */
+.imageTag1-1 {
+	left: -180px;
+	top: 80px;
+}
+.imageTag1-2 {
+	left: 500px;
+	top: 350px;
+}
+.imageTag1-3 {
+	left: 900px;
+	top: 220px;
+}
+
+/* POSITION-TAG 2 */
+.imageTag2-1 {
+	left: 340px;
+	top: 60px;
+}
+.imageTag2-2 {
+	left: 500px;
+	top: 450px;
+}
+.imageTag2-3 {
+	left: 780px;
+	top: 700px;
+}
+
+/* TOOLTIP */
+.tooltipStyle {
+	background-color: white;
+}

@@ -4,6 +4,8 @@ import ArrowBackIcon from '@mui/icons-material/ArrowBack'
 import ArrowForwardIcon from '@mui/icons-material/ArrowForward'
 import { sliderItems } from './sliderData'
 import Slogan from '../Slogan'
+import './slider.css'
+import Tags from './Tags'
 
 const Container = styled.div`
 	width: 100%;
@@ -37,7 +39,7 @@ const Img = styled.img`
 `
 const InfoContainer = styled.div`
 	width: 35vw;
-	height: 100vh;
+	height: 100%;
 	padding: 40px;
 	display: flex;
 	flex-direction: column;
@@ -88,10 +90,12 @@ const Slider = () => {
 		}
 	}
 
+	const [imageTag, setImageTag] = useState(`imageTag${slideIndex}`)
 	useEffect(() => {
+		setImageTag(`imageTag${slideIndex}`)
 		const interval = setInterval(() => {
 			handleClick()
-		}, 7000)
+		}, 20000)
 		return () => clearInterval(interval)
 	}, [slideIndex])
 
@@ -108,6 +112,7 @@ const Slider = () => {
 							<Arrow direction="right" onClick={() => handleClick('right')}>
 								<ArrowForwardIcon />
 							</Arrow>
+							<Tags imageTag={imageTag} slideIndex={slideIndex} />
 						</ImgContainer>
 						<InfoContainer>
 							<Title>{item.title}</Title>
