@@ -3,11 +3,13 @@ import styled from 'styled-components'
 import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag'
 import { Badge } from '@mui/material'
+import logo from '../images/logo.png'
 
 const Container = styled.div`
-	height: 60px;
+	height: 70px;
 `
 const Wrapper = styled.div`
+	height: 70px;
 	padding: 10px 20px;
 	display: flex;
 	justify-content: space-between;
@@ -74,6 +76,7 @@ const Navbar = () => {
 				</Left>
 				<Center>
 					<Logo>Bohygge</Logo>
+					<img src={logo} alt="" style={{ width: '40px' }} />
 				</Center>
 				<Right>
 					<MenuLink>Login</MenuLink>
