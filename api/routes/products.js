@@ -39,7 +39,7 @@ router.delete('/:id', async (req, res) => {
 	}
 })
 
-// GET A PRODUCT A PRODUCT LISTING
+// GET A PRODUCT LISTING
 router.get('/find/:id', async (req, res) => {
 	try {
 		const product = await Product.findById(req.params.id)
