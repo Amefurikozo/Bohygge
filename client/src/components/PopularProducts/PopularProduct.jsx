@@ -40,6 +40,18 @@ const Image = styled.img`
 	object-fit: cover;
 `
 
+const Price = styled.div`
+	position: absolute;
+	color: black;
+	z-index: 99;
+	bottom: 20px;
+	width: 80px;
+	padding: 5px;
+	text-align: center;
+	background-color: white;
+	border-radius: 5px;
+`
+
 const Icon = styled.div`
 	width: 40px;
 	height: 40px;
@@ -59,6 +71,7 @@ const PopularProduct = ({ item }) => {
 	return (
 		<Container>
 			<Image src={item.img} />
+			<Price>{item.price}€</Price>
 			<Info>
 				<Icon>
 					<ShoppingBagIcon />

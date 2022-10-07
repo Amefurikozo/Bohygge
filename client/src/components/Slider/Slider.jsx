@@ -11,7 +11,7 @@ const Container = styled.div`
 	width: 100%;
 	height: calc(100vh - 70px);
 	display: flex;
-
+	margin-bottom: 80px;
 	overflow: hidden;
 `
 
@@ -57,8 +57,10 @@ const Button = styled.button`
 	margin-top: 20px;
 	padding: 10px;
 	font-size: 20px;
+	font-variant: small-caps;
 	background-color: transparent;
 	cursor: pointer;
+	width: 200px;
 `
 
 const Arrow = styled.div`

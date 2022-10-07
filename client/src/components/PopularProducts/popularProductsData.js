@@ -1,5 +1,5 @@
 import slide1 from '../../images/candles/candles (3).jpg'
-import slide2 from '../../images/style/style (8).jpg'
+import slide2 from '../../images/style/style (10).jpg'
 import slide3 from '../../images/decor/decor-vase.jpg'
 import slide4 from '../../images/art/art.jpg'
 import slide5 from '../../images/decor/decor-wall.jpg'
@@ -11,41 +11,41 @@ export const popularProductsData = [
 	{
 		id: 1,
 		img: slide1,
-		price: '',
+		price: '7',
 	},
 	{
 		id: 2,
 		img: slide2,
-		price: '',
+		price: '40',
 	},
 	{
 		id: 3,
 		img: slide3,
-		price: '',
+		price: '25',
 	},
 	{
 		id: 4,
 		img: slide4,
-		price: '',
+		price: '12',
 	},
 	{
 		id: 5,
 		img: slide5,
-		price: '',
+		price: '18',
 	},
 	{
 		id: 6,
 		img: slide6,
-		price: '',
+		price: '14',
 	},
 	{
 		id: 7,
 		img: slide7,
-		price: '',
+		price: '70',
 	},
 	{
 		id: 8,
 		img: slide8,
-		price: '',
+		price: '10',
 	},
 ]
