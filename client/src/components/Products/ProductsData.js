@@ -7,7 +7,7 @@ import slide6 from '../../images/decor/decor-dreamcatcher (4).jpg'
 import slide7 from '../../images/decor/decor-ukulele.jpg'
 import slide8 from '../../images/style/style (3).jpg'
 
-export const popularProductsData = [
+export const ProductsData = [
 	{
 		id: 1,
 		img: slide1,

@@ -1,6 +1,6 @@
 import styled from 'styled-components'
-import { popularProductsData } from './popularProductsData'
-import PopularProduct from './PopularProduct'
+import { ProductsData } from './ProductsData'
+import Product from './Product'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 
 const Container = styled.div`
@@ -15,19 +15,19 @@ const Right = styled.div`
 	justify-content: end;
 `
 
-const PopularProducts = () => {
+const Products = ({ categoryTitle }) => {
 	return (
 		<>
 			<Right>
-				<SectionTitle title="Popular"></SectionTitle>
+				<SectionTitle title={categoryTitle || 'Popular'}></SectionTitle>
 			</Right>
 			<Container>
-				{popularProductsData.map((item) => (
-					<PopularProduct item={item} key={item.id} />
+				{ProductsData.map((item) => (
+					<Product item={item} key={item.id} />
 				))}
 			</Container>
 		</>
 	)
 }
 
-export default PopularProducts
+export default Products

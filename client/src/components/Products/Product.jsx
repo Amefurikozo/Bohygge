@@ -67,7 +67,7 @@ const Icon = styled.div`
 	}
 `
 
-const PopularProduct = ({ item }) => {
+const Product = ({ item }) => {
 	return (
 		<Container>
 			<Image src={item.img} />
@@ -87,4 +87,4 @@ const PopularProduct = ({ item }) => {
 	)
 }
 
-export default PopularProduct
+export default Product

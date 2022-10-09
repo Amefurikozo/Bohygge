@@ -26,13 +26,14 @@ const Language = styled.div`
 `
 const SearchContainer = styled.div`
 	border: 0.5px solid lightgray;
-	border-radius: 5px;
-	display: flex;
+	border-radius: 0px;
+	/* display: flex; */
 	align-items: center;
 	margin-left: 25px;
-	padding: 5px;
+	display: none;
 `
 const Input = styled.input`
+	padding: 5px;
 	border: none;
 `
 

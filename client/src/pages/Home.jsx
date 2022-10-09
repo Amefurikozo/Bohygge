@@ -1,6 +1,6 @@
 import React from 'react'
 import CategoryCards from '../components/CategoryCards/CategoryCards'
-import PopularProducts from '../components/PopularProducts/PopularProducts'
+import Products from '../components/Products/Products'
 import Slider from '../components/Slider/Slider'
 import Footer from '../components/Footer/Footer'
 import Concepts from '../components/Concepts/Concepts'
@@ -11,7 +11,7 @@ const Home = () => {
 		<>
 			<Slider />
 			<CategoryCards />
-			<PopularProducts />
+			<Products />
 			<Concepts />
 			<Divider />
 			<Footer />
