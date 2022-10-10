@@ -23,6 +23,7 @@ const Left = styled.div`
 `
 const Language = styled.div`
 	font-size: 16px;
+	display: none;
 `
 const SearchContainer = styled.div`
 	border: 0.5px solid lightgray;
@@ -62,8 +63,9 @@ const MenuLink = styled.div`
 	font-size: 16px;
 	cursor: pointer;
 	font-variant: small-caps;
-	margin-left: 15px;
-	width: 70px;
+	margin-left: 10px;
+	padding: 0px 10px;
+	width: fit-content;
 	height: 40px;
 `
 
@@ -83,11 +85,11 @@ const Navbar = () => {
 					<img src={logo} alt="" style={{ width: '40px' }} />
 				</Center>
 				<Right>
-					<MenuLink>Login</MenuLink>
-					<MenuLink>Register</MenuLink>
+					<MenuLink>LOGIN</MenuLink>
+					<MenuLink>REGISTER</MenuLink>
 					<MenuLink>
 						<Badge badgeContent={0}>
-							<ShoppingBagIcon />
+							<ShoppingBagIcon style={{ fontSize: '30px' }} />
 						</Badge>
 					</MenuLink>
 				</Right>
