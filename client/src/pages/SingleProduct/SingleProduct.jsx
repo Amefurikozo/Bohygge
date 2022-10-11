@@ -86,7 +86,9 @@ const IconContainer = styled.div`
 `
 
 const Button = styled.button`
-	width: 134px;
+	width: fit-content;
+	height: fit-content;
+	margin: 0px;
 	padding: 15px;
 	border: none;
 	background-color: black;

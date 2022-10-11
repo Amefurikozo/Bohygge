@@ -5,6 +5,8 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import ClearIcon from '@mui/icons-material/Clear'
 import cartImage1 from '../../images/decor/decor-dreamcatcher.jpg'
 import cartImage2 from '../../images/style/style (11).jpg'
+import { useState } from 'react'
+import StripeContainer from '../../components/Stripe/StripeContainer'
 
 const Container = styled.div`
 	display: flex;
@@ -143,12 +145,15 @@ const Summary = styled.div`
 	padding-top: 0px;
 	height: fit-content;
 	margin-left: 30px;
+	display: flex;
+	flex-direction: column;
 `
 const SummaryTitle = styled.h1`
 	font-weight: 200;
+	margin-bottom: 30px;
 `
 const SummaryItem = styled.div`
-	margin: 30px 0px;
+	margin: 10px 0px;
 	display: flex;
 	justify-content: space-between;
 	font-weight: ${(props) => props.type === 'bold' && '500'};
@@ -162,9 +167,16 @@ const Button = styled.button`
 	background-color: black;
 	color: white;
 	font-weight: 600;
+	align-self: center;
 `
 
 const Cart = () => {
+	const [showCheckoutForm, setShowCheckoutForm] = useState(false)
+
+	const handleCheckout = () => {
+		setShowCheckoutForm(true)
+	}
+
 	return (
 		<Container>
 			<Wrapper>
@@ -255,26 +267,30 @@ const Cart = () => {
 							/>
 						</Item>
 					</Info>
-					<Summary>
-						<SummaryTitle>ORDER SUMMARY</SummaryTitle>
-						<SummaryItem>
-							<SummaryItemText>Subtotal</SummaryItemText>
-							<SummaryItemPrice>0€</SummaryItemPrice>
-						</SummaryItem>
-						<SummaryItem>
-							<SummaryItemText>Discount</SummaryItemText>
-							<SummaryItemPrice>0%</SummaryItemPrice>
-						</SummaryItem>
-						<SummaryItem>
-							<SummaryItemText>Estimated Shipping</SummaryItemText>
-							<SummaryItemPrice>0€</SummaryItemPrice>
-						</SummaryItem>
-						<SummaryItem type="bold">
-							<SummaryItemText>Total</SummaryItemText>
-							<SummaryItemPrice>0€</SummaryItemPrice>
-						</SummaryItem>
-						<Button>CHECKOUT</Button>
-					</Summary>
+					{showCheckoutForm ? (
+						<StripeContainer />
+					) : (
+						<Summary>
+							<SummaryTitle>ORDER SUMMARY</SummaryTitle>
+							<SummaryItem>
+								<SummaryItemText>Subtotal</SummaryItemText>
+								<SummaryItemPrice>0€</SummaryItemPrice>
+							</SummaryItem>
+							<SummaryItem>
+								<SummaryItemText>Discount</SummaryItemText>
+								<SummaryItemPrice>0%</SummaryItemPrice>
+							</SummaryItem>
+							<SummaryItem>
+								<SummaryItemText>Estimated Shipping</SummaryItemText>
+								<SummaryItemPrice>0€</SummaryItemPrice>
+							</SummaryItem>
+							<SummaryItem type="bold">
+								<SummaryItemText>Total</SummaryItemText>
+								<SummaryItemPrice>0€</SummaryItemPrice>
+							</SummaryItem>
+							<Button onClick={handleCheckout}>CHECKOUT NOW</Button>
+						</Summary>
+					)}
 				</ShoppingInfoContainer>
 			</Wrapper>
 			<Footer />

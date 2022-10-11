@@ -1,3 +1,4 @@
+import { BrowserRouter as Router, Routes, Route } from 'react-router-dom'
 import Navbar from './components/Navbar'
 import Home from './pages/Home'
 import Register from './pages/Register/Register'
@@ -9,7 +10,11 @@ function App() {
 	return (
 		<>
 			<Navbar />
-			<Cart />
+			<Router>
+				<Routes>
+					<Route path="/" element={<CategoryProducts />} />
+				</Routes>
+			</Router>
 		</>
 	)
 }
