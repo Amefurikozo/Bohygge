@@ -4,6 +4,7 @@ import SearchIcon from '@mui/icons-material/Search'
 import ShoppingBagIcon from '@mui/icons-material/ShoppingBag'
 import { Badge } from '@mui/material'
 import logo from '../images/logo.png'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 	height: 70px;
@@ -61,7 +62,6 @@ const MenuLink = styled.div`
 	align-items: center;
 	justify-content: center;
 	font-size: 16px;
-	cursor: pointer;
 	font-variant: small-caps;
 	margin-left: 10px;
 	padding: 0px 10px;
@@ -80,16 +80,30 @@ const Navbar = () => {
 						<SearchIcon style={{ color: 'gray' }} />
 					</SearchContainer>
 				</Left>
-				<Center>
-					<Logo>Bohygge</Logo>
-					<img src={logo} alt="" style={{ width: '40px' }} />
-				</Center>
+				<Link className="link" to="/">
+					<Center>
+						<Logo>Bohygge</Logo>
+						<img src={logo} alt="" style={{ width: '40px' }} />
+					</Center>
+				</Link>
 				<Right>
-					<MenuLink>LOGIN</MenuLink>
-					<MenuLink>REGISTER</MenuLink>
+					<MenuLink>
+						<Link className="link" to="/login">
+							LOGIN
+						</Link>
+					</MenuLink>
+
+					<MenuLink>
+						<Link className="link" to="/register">
+							REGISTER
+						</Link>
+					</MenuLink>
+
 					<MenuLink>
 						<Badge badgeContent={0}>
-							<ShoppingBagIcon style={{ fontSize: '30px' }} />
+							<Link className="link" to="/cart">
+								<ShoppingBagIcon style={{ fontSize: '30px' }} />
+							</Link>
 						</Badge>
 					</MenuLink>
 				</Right>

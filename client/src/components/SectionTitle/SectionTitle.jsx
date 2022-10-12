@@ -7,6 +7,7 @@ const SectionTitleContainer = styled.div`
 	background-color: black;
 	color: white;
 	text-align: center;
+	text-transform: uppercase;
 `
 
 export const SectionTitle = ({ title }) => {

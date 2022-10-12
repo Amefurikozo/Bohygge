@@ -10,30 +10,36 @@ export const categoryData = [
 		id: 1,
 		img: slide1,
 		title: 'BOHYGGE-WEAR COLLECTION',
+		category: 'clothes',
 	},
 	{
 		id: 2,
 		img: slide2,
 		title: 'HOME DECOR',
+		category: 'decor',
 	},
 	{
 		id: 3,
 		img: slide3,
 		title: 'CANDLES',
+		category: 'candles',
 	},
 	{
 		id: 4,
 		img: slide4,
 		title: 'WHOLESOME ART',
+		category: 'art',
 	},
 	{
 		id: 5,
 		img: slide5,
 		title: 'WOOD FURNITURE',
+		category: 'furniture',
 	},
 	{
 		id: 6,
 		img: slide6,
 		title: 'OUTDOOR ITEMS',
+		category: 'outdoors',
 	},
 ]

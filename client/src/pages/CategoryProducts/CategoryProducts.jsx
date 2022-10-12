@@ -1,3 +1,5 @@
+import { useState } from 'react'
+import { useLocation } from 'react-router-dom'
 import styled from 'styled-components'
 import Footer from '../../components/Footer/Footer'
 import Products from '../../components/Products/Products'
@@ -32,15 +34,33 @@ const Select = styled.select`
 const Option = styled.option``
 
 const CategoryProducts = () => {
+	const location = useLocation()
+	const category = location.pathname.split('/')[2]
+
+	const [categoryList, setCategoryList] = useState()
+	const handleCategoryList = (e) => {
+		const value = e.target.value.toLowerCase()
+		setCategoryList(value)
+		window.location.replace(`/products/${value}`)
+	}
+	const [sortList, setSortList] = useState()
+	const handleSortList = (e) => {
+		const value = e.target.value
+		setSortList(value)
+	}
+
+	console.log(categoryList, sortList)
+
 	return (
 		<Container>
 			<FilterContainer>
 				<Filter>
-					<FilterText>FILTER BY:</FilterText>
-					<Select>
-						<Option disabled selected>
-							Category
-						</Option>
+					<FilterText>FILTER:</FilterText>
+					<Select
+						name="category"
+						onChange={handleCategoryList}
+						defaultValue={category.charAt(0).toUpperCase() + category.slice(1)}
+					>
 						<Option>Furniture</Option>
 						<Option>Decor</Option>
 						<Option>Clothes</Option>
@@ -50,17 +70,21 @@ const CategoryProducts = () => {
 					</Select>
 				</Filter>
 				<Filter>
-					<FilterText>SORT BY:</FilterText>
-					<Select>
-						<Option selected>Newest</Option>
-						<Option>Oldest</Option>
-						<Option>Price (low to high)</Option>
-						<Option>Price (high to low)</Option>
-						<Option>Popular</Option>
+					<FilterText>SORT:</FilterText>
+					<Select name="sort" onChange={handleSortList} defaultValue="new">
+						<Option value="new">Newest</Option>
+						<Option value="old">Oldest</Option>
+						<Option value="low">Price (low to high)</Option>
+						<Option value="high">Price (high to low)</Option>
+						<Option value="popular">Popular</Option>
 					</Select>
 				</Filter>
 			</FilterContainer>
-			<Products categoryTitle="Category" />
+			<Products
+				category={categoryList}
+				categoryTitle={category}
+				sort={sortList}
+			/>
 			<Footer />
 		</Container>
 	)
