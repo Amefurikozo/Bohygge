@@ -1,4 +1,5 @@
 import { css } from 'styled-components'
+import axios from 'axios'
 
 export const phoneSM = (props) => {
 	return css`
@@ -64,3 +65,16 @@ export const Divider = () => {
 		></div>
 	)
 }
+
+const BASE_URL = 'http://localhost:8000/api/'
+const TOKEN =
+	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2RhYWRjNzRmY2E5MTgyMDgzOWQ5NyIsImlhdCI6MTY2NTY2MTExMiwiZXhwIjoxNjY2MjY1OTEyfQ.VhtAUHewRsro9h_99GRjAGWTa3g6EIGqVt5lNKfFhwo'
+
+export const publicRequest = axios.create({
+	baseURL: BASE_URL,
+})
+
+export const userRequest = axios.create({
+	baseURL: BASE_URL,
+	header: { token: `Bearer ${TOKEN}` },
+})

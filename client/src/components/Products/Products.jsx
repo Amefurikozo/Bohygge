@@ -30,7 +30,7 @@ const Products = ({ sort, categoryTitle }) => {
 						: 'http://localhost:8000/api/products?category=popular'
 				)
 				setProducts(res.data)
-				console.log('hi')
+				// console.log('hi')
 			} catch (err) {
 				console.log(err.message)
 			}
@@ -60,7 +60,7 @@ const Products = ({ sort, categoryTitle }) => {
 		}
 	}, [sort])
 
-	console.log(categoryTitle, sort, sortedProducts)
+	// console.log(categoryTitle, sort, sortedProducts)
 
 	return (
 		<>

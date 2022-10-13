@@ -3,6 +3,9 @@ import Footer from '../../components/Footer/Footer'
 import bohyggeImg from '../../images/candles/candles (4).jpg'
 import AddIcon from '@mui/icons-material/Add'
 import RemoveIcon from '@mui/icons-material/Remove'
+import { useLocation } from 'react-router-dom'
+import React, { useState, useEffect } from 'react'
+import { publicRequest } from '../../components/Utils'
 
 const Container = styled.div``
 
@@ -103,36 +106,51 @@ const Button = styled.button`
 `
 
 const SingleProduct = () => {
+	const location = useLocation()
+	const id = location.pathname.split('/')[2]
+	const [product, setProduct] = useState({})
+	const [quantity, setQuantity] = useState(1)
+
+	useEffect(() => {
+		const getProduct = async () => {
+			try {
+				const res = await publicRequest.get('/products/find/' + id)
+				setProduct(res.data)
+				console.log(res.data)
+			} catch (err) {
+				console.log(err.message)
+			}
+		}
+		getProduct()
+	}, [id])
+
+	const handleQuantity = (type) => {
+		if (type === 'decrease') {
+			quantity > 1 && setQuantity(quantity - 1)
+		} else {
+			setQuantity(quantity + 1)
+		}
+	}
+
 	return (
 		<Container>
 			<Wrapper>
 				<ImgContainer>
-					<Image src={bohyggeImg} />
+					<Image src={product.img} />
 				</ImgContainer>
 				<InfoContainer>
-					<Title>smokey wood scented candle</Title>
-					<Description>
-						Lorem ipsum dolor sit amet, consectetur adipiscing elit. Donec
-						venenatis, dolor in finibus malesuada, lectus ipsum porta nunc, at
-						iaculis arcu nisi sed mauris. Nulla fermentum vestibulum ex, eget
-						tristique tortor pretium ut. Curabitur elit justo, consequat id
-						condimentum ac, volutpat ornare.
-					</Description>
-					<SubDescription>
-						Lorem ipsum dolor sit amet consectetur, adipisicing elit. Officia
-						earum animi voluptatum nulla, maiores, non similique laboriosam
-						beatae ipsam in dicta voluptas porro fuga ex? Aperiam veritatis
-						fugit numquam nemo!
-					</SubDescription>
-					<Price>20€</Price>
+					<Title>{product.title}</Title>
+					<Description>{product.desc}</Description>
+					<SubDescription>{product.moreInfo}</SubDescription>
+					<Price>{product.price}€</Price>
 					<OptionsContainer>
 						<QuantityContainer>
 							<IconContainer>
-								<RemoveIcon />
+								<RemoveIcon onClick={() => handleQuantity('decrease')} />
 							</IconContainer>
-							<Quantity>1</Quantity>
+							<Quantity>{quantity}</Quantity>
 							<IconContainer>
-								<AddIcon />
+								<AddIcon onClick={() => handleQuantity('increase')} />
 							</IconContainer>
 						</QuantityContainer>
 					</OptionsContainer>
