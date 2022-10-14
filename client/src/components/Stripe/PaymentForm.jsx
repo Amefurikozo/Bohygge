@@ -3,6 +3,7 @@ import axios from 'axios'
 import React, { useState } from 'react'
 import BillingDetails from './BillingDetails'
 import './style.css'
+import { useSelector } from 'react-redux'
 
 const CARD_OPTIONS = {
 	iconStyle: 'solid',
@@ -25,6 +26,8 @@ const CARD_OPTIONS = {
 }
 
 export default function PaymentForm() {
+	const cart = useSelector((state) => state.cart)
+
 	const [success, setSuccess] = useState(false)
 	const stripe = useStripe()
 	const elements = useElements()
@@ -54,7 +57,7 @@ export default function PaymentForm() {
 				const response = await axios.post(
 					'http://localhost:8000/api/checkout/payment',
 					{
-						amount: 1000,
+						amount: cart.total * 100,
 						id,
 					}
 				)
@@ -82,7 +85,10 @@ export default function PaymentForm() {
 							<CardElement options={CARD_OPTIONS} />
 						</div>
 					</fieldset>
-					<button>PURCHASE</button>
+					<button>CONFIRM</button>
+					<div style={{ margin: '15px', fontWeight: 'bold' }}>
+						Total Price: {cart.total}€
+					</div>
 				</form>
 			) : (
 				<div className="success">

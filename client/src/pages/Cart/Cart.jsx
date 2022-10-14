@@ -5,8 +5,16 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import ClearIcon from '@mui/icons-material/Clear'
 import cartImage1 from '../../images/decor/decor-dreamcatcher.jpg'
 import cartImage2 from '../../images/style/style (11).jpg'
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 import StripeContainer from '../../components/Stripe/StripeContainer'
+import { useSelector } from 'react-redux'
+
+import {
+	increaseQuantity,
+	decreaseQuantity,
+	removeItem,
+} from '../../redux/cartRedux'
+import { useDispatch } from 'react-redux'
 
 const Container = styled.div`
 	display: flex;
@@ -144,7 +152,7 @@ const Summary = styled.div`
 	padding: 20px;
 	padding-top: 0px;
 	height: fit-content;
-	margin-left: 30px;
+	margin: 0px 30px;
 	display: flex;
 	flex-direction: column;
 `
@@ -171,10 +179,25 @@ const Button = styled.button`
 `
 
 const Cart = () => {
+	const cart = useSelector((state) => state.cart)
+	// console.log(cart)
 	const [showCheckoutForm, setShowCheckoutForm] = useState(false)
 
 	const handleCheckout = () => {
 		setShowCheckoutForm(true)
+	}
+
+	const dispatch = useDispatch()
+	const handleQuantity = (type, index) => {
+		if (type === 'decrease') {
+			dispatch(decreaseQuantity(index))
+		} else {
+			dispatch(increaseQuantity(index))
+		}
+	}
+
+	const handleItemRemoval = (index) => {
+		dispatch(removeItem(index))
 	}
 
 	return (
@@ -183,89 +206,58 @@ const Cart = () => {
 				<Title>YOUR SHOPPING LIST</Title>
 				<ShoppingInfoContainer>
 					<Info>
-						<Item>
-							<ItemDetail>
-								<Image src={cartImage1} />
-								<Details>
-									<ItemName>
-										<ItemSectionTitle>Item: </ItemSectionTitle> Dreamcatcher
-									</ItemName>
-									<ItemID>
-										<ItemSectionTitle>ID: </ItemSectionTitle> 000
-									</ItemID>
-									<Description>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Donec venenatis, dolor in finibus malesuada, lectus ipsum
-										porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum
-										vestibulum ex, eget tristique tortor pretium ut. Curabitur
-										elit justo, consequat id condimentum ac, volutpat ornare.
-									</Description>
-									<PriceQuantityDetails>
-										<OptionsContainer>
-											<QuantityContainer>
-												<IconContainer>
-													<RemoveIcon />
-												</IconContainer>
-												<Quantity>1</Quantity>
-												<IconContainer>
-													<AddIcon />
-												</IconContainer>
-											</QuantityContainer>
-										</OptionsContainer>
-										<ItemPrice>0€</ItemPrice>
-									</PriceQuantityDetails>
-								</Details>
-							</ItemDetail>
-							<ClearIcon
-								style={{
-									position: 'absolute',
-									right: '10px',
-									cursos: 'pointer',
-								}}
-							/>
-						</Item>
-						<Hr />
-						<Item>
-							<ItemDetail>
-								<Image src={cartImage2} />
-								<Details>
-									<ItemName>
-										<ItemSectionTitle>Item: </ItemSectionTitle> Sweater
-									</ItemName>
-									<ItemID>
-										<ItemSectionTitle>ID: </ItemSectionTitle> 001
-									</ItemID>
-									<Description>
-										Lorem ipsum dolor sit amet, consectetur adipiscing elit.
-										Donec venenatis, dolor in finibus malesuada, lectus ipsum
-										porta nunc, at iaculis arcu nisi sed mauris. Nulla fermentum
-										vestibulum ex, eget tristique tortor pretium ut. Curabitur
-										elit justo, consequat id condimentum ac, volutpat ornare.
-									</Description>
-									<PriceQuantityDetails>
-										<OptionsContainer>
-											<QuantityContainer>
-												<IconContainer>
-													<RemoveIcon />
-												</IconContainer>
-												<Quantity>1</Quantity>
-												<IconContainer>
-													<AddIcon />
-												</IconContainer>
-											</QuantityContainer>
-										</OptionsContainer>
-										<ItemPrice>0€</ItemPrice>
-									</PriceQuantityDetails>
-								</Details>
-							</ItemDetail>
-							<ClearIcon
-								style={{
-									position: 'absolute',
-									right: '10px',
-									cursos: 'pointer',
-								}}
-							/>
-						</Item>
+						{cart.products.map((product, index) => (
+							<div key={index}>
+								<Item>
+									<ItemDetail>
+										<Image src={cartImage1} />
+										<Details>
+											<ItemName>
+												<ItemSectionTitle>Item: </ItemSectionTitle>
+												{product.title}
+											</ItemName>
+											<ItemID>
+												<ItemSectionTitle>ID: </ItemSectionTitle> {product._id}
+											</ItemID>
+											<Description>{product.desc}</Description>
+											<PriceQuantityDetails>
+												<OptionsContainer>
+													<QuantityContainer>
+														<IconContainer>
+															<RemoveIcon
+																onClick={() =>
+																	handleQuantity('decrease', index)
+																}
+															/>
+														</IconContainer>
+														<Quantity>{product.quantity}</Quantity>
+														<IconContainer>
+															<AddIcon
+																onClick={() =>
+																	handleQuantity('increase', index)
+																}
+															/>
+														</IconContainer>
+													</QuantityContainer>
+												</OptionsContainer>
+												<ItemPrice>
+													{product.price * product.quantity}€
+												</ItemPrice>
+											</PriceQuantityDetails>
+										</Details>
+									</ItemDetail>
+									<ClearIcon
+										style={{
+											position: 'absolute',
+											right: '10px',
+											cursor: 'pointer',
+										}}
+										onClick={() => handleItemRemoval(index)}
+									/>
+								</Item>
+								<Hr />
+							</div>
+						))}
 					</Info>
 					{showCheckoutForm ? (
 						<StripeContainer />
@@ -274,7 +266,7 @@ const Cart = () => {
 							<SummaryTitle>ORDER SUMMARY</SummaryTitle>
 							<SummaryItem>
 								<SummaryItemText>Subtotal</SummaryItemText>
-								<SummaryItemPrice>0€</SummaryItemPrice>
+								<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
 							</SummaryItem>
 							<SummaryItem>
 								<SummaryItemText>Discount</SummaryItemText>
@@ -286,7 +278,7 @@ const Cart = () => {
 							</SummaryItem>
 							<SummaryItem type="bold">
 								<SummaryItemText>Total</SummaryItemText>
-								<SummaryItemPrice>0€</SummaryItemPrice>
+								<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
 							</SummaryItem>
 							<Button onClick={handleCheckout}>CHECKOUT NOW</Button>
 						</Summary>

@@ -6,6 +6,10 @@ import RemoveIcon from '@mui/icons-material/Remove'
 import { useLocation } from 'react-router-dom'
 import React, { useState, useEffect } from 'react'
 import { publicRequest } from '../../components/Utils'
+import { addProduct } from '../../redux/cartRedux'
+import { useDispatch } from 'react-redux'
+
+export let quantityCart
 
 const Container = styled.div``
 
@@ -110,13 +114,14 @@ const SingleProduct = () => {
 	const id = location.pathname.split('/')[2]
 	const [product, setProduct] = useState({})
 	const [quantity, setQuantity] = useState(1)
+	const dispatch = useDispatch()
 
 	useEffect(() => {
 		const getProduct = async () => {
 			try {
 				const res = await publicRequest.get('/products/find/' + id)
 				setProduct(res.data)
-				console.log(res.data)
+				// console.log(res.data)
 			} catch (err) {
 				console.log(err.message)
 			}
@@ -130,6 +135,14 @@ const SingleProduct = () => {
 		} else {
 			setQuantity(quantity + 1)
 		}
+	}
+
+	useEffect(() => {
+		quantityCart = quantity
+	}, [quantity])
+
+	const handleClick = () => {
+		dispatch(addProduct({ ...product, quantity }))
 	}
 
 	return (
@@ -154,7 +167,7 @@ const SingleProduct = () => {
 							</IconContainer>
 						</QuantityContainer>
 					</OptionsContainer>
-					<Button>ADD TO CART</Button>
+					<Button onClick={handleClick}>ADD TO CART</Button>
 				</InfoContainer>
 			</Wrapper>
 			<Footer />

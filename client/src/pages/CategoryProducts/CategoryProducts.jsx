@@ -49,7 +49,7 @@ const CategoryProducts = () => {
 		setSortList(value)
 	}
 
-	console.log(categoryList, sortList)
+	// console.log(categoryList, sortList)
 
 	return (
 		<Container>
