@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import loginImage from '../../images/Bohygge/login.jpg'
+import { useEffect, useState } from 'react'
+import { useDispatch, useSelector } from 'react-redux'
+import { login } from '../../redux/userRedux'
 
 const Container = styled.div`
 	display: flex;
@@ -87,28 +90,48 @@ const ButtonLogin = styled.div`
 	background-color: #130f0c;
 	color: white;
 	text-align: center;
-	font-size: 20px;
-	font-variant: small-caps;
+	font-size: 16px;
+	text-transform: uppercase;
 	font-weight: 700;
 	padding: 10px;
-	width: 100px;
+	width: 110px;
 	margin: 0px 10px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 const ButtonRegister = styled.div`
 	background-color: #412f28;
 	color: white;
 	text-align: center;
-	font-size: 20px;
-	font-variant: small-caps;
+	font-size: 16px;
+	text-transform: uppercase;
 	font-weight: 700;
 	padding: 10px;
-	width: 100px;
+	width: 110px;
 	margin: 0px 10px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`
+
+const Error = styled.div`
+	color: black;
 `
 
 const Login = () => {
+	const [username, setUsername] = useState('')
+	const [password, setPassword] = useState('')
+	const dispatch = useDispatch()
+	let { isFetching, error } = useSelector((state) => state.user)
+
+	const handleClick = (e) => {
+		e.preventDefault()
+		login(dispatch, { username, password })
+	}
+
 	return (
 		<Container>
 			<Left>
@@ -135,13 +158,25 @@ const Login = () => {
 				<LoginContainer>
 					<LoginTitle>Login</LoginTitle>
 					<InputFields>
-						Username <Input placeholder="Enter your Username." />
-						Password <Input placeholder="Enter your Password." />
+						Username
+						<Input
+							placeholder="Enter your Username."
+							onChange={(e) => setUsername(e.target.value)}
+						/>
+						Password
+						<Input
+							placeholder="Enter your Password."
+							type={'password'}
+							onChange={(e) => setPassword(e.target.value)}
+						/>
 					</InputFields>
 					<ButtonsContainer>
-						<ButtonLogin>sign in</ButtonLogin>
+						<ButtonLogin onClick={handleClick} disabled={isFetching}>
+							sign in
+						</ButtonLogin>
 						<ButtonRegister>register</ButtonRegister>
 					</ButtonsContainer>
+					{error && <Error>Something went wrong, please try again.</Error>}
 				</LoginContainer>
 			</Right>
 		</Container>

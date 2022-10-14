@@ -1,5 +1,8 @@
 import styled from 'styled-components'
 import registerImage from '../../images/Bohygge/register.jpg'
+import { useState } from 'react'
+import axios from 'axios'
+import { publicRequest } from '../../components/Utils'
 
 const Container = styled.div`
 	display: flex;
@@ -87,28 +90,56 @@ const ButtonRegister = styled.div`
 	background-color: #211b0f;
 	color: white;
 	text-align: center;
-	font-size: 20px;
-	font-variant: small-caps;
+	font-size: 16px;
+	text-transform: uppercase;
 	font-weight: 700;
 	padding: 10px;
-	width: 100px;
+	width: 110px;
 	margin: 0px 10px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
 `
 const ButtonLogin = styled.div`
 	background-color: #b0b0b2;
 	color: white;
 	text-align: center;
-	font-size: 20px;
-	font-variant: small-caps;
+	font-size: 16px;
+	text-transform: uppercase;
 	font-weight: 700;
 	padding: 10px;
-	width: 100px;
+	width: 110px;
 	margin: 0px 10px;
 	cursor: pointer;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+`
+const Error = styled.div`
+	color: black;
 `
 
 const Register = () => {
+	const [username, setUsername] = useState('')
+	const [email, setEmail] = useState('')
+	const [password, setPassword] = useState('')
+	const [error, setError] = useState(false)
+
+	const handleSubmit = async (e) => {
+		e.preventDefault()
+		setError(false)
+		try {
+			const res = await publicRequest.post('/auth/register', {
+				username,
+				email,
+				password,
+			})
+			res.data && window.location.replace('/login')
+		} catch (err) {
+			setError(true)
+		}
+	}
 	return (
 		<Container>
 			<Left>
@@ -135,14 +166,27 @@ const Register = () => {
 				<RegisterContainer>
 					<RegisterTitle>Register</RegisterTitle>
 					<InputFields>
-						Username <Input placeholder="Enter your Username." />
-						Email <Input placeholder="Enter your Email." />
-						Password <Input placeholder="Enter your Password." />
+						Username{' '}
+						<Input
+							placeholder="Enter your Username."
+							onChange={(e) => setUsername(e.target.value)}
+						/>
+						Email{' '}
+						<Input
+							placeholder="Enter your Email."
+							onChange={(e) => setEmail(e.target.value)}
+						/>
+						Password{' '}
+						<Input
+							placeholder="Enter your Password."
+							onChange={(e) => setPassword(e.target.value)}
+						/>
 					</InputFields>
 					<ButtonsContainer>
-						<ButtonRegister>sign up</ButtonRegister>
+						<ButtonRegister onClick={handleSubmit}>sign up</ButtonRegister>
 						<ButtonLogin>login</ButtonLogin>
 					</ButtonsContainer>
+					{error && <Error>Something went wrong, please try again.</Error>}
 				</RegisterContainer>
 			</Right>
 		</Container>

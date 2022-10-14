@@ -97,9 +97,7 @@ const Tags = ({ imageTag, slideIndex }) => {
 	return (
 		<>
 			<OverlayTrigger overlay={popover} placement="top">
-				<div className={`tagStyle ${imageTag + '-1'}`} dataHover="hi">
-					i
-				</div>
+				<div className={`tagStyle ${imageTag + '-1'}`}>i</div>
 			</OverlayTrigger>
 			<OverlayTrigger overlay={popover2} placement="top">
 				<div className={`tagStyle ${imageTag + '-2'}`}>i</div>

@@ -5,7 +5,8 @@ import ShoppingBagIcon from '@mui/icons-material/ShoppingBag'
 import { Badge } from '@mui/material'
 import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
-import { useSelector } from 'react-redux'
+import { useSelector, useDispatch } from 'react-redux'
+import { logout } from '../redux/userRedux'
 
 const Container = styled.div`
 	height: 70px;
@@ -72,6 +73,12 @@ const MenuLink = styled.div`
 
 const Navbar = () => {
 	const cart = useSelector((state) => state.cart)
+	const user = useSelector((state) => state.user.currentUser)
+	const dispatch = useDispatch()
+
+	const handleLogout = () => {
+		dispatch(logout())
+	}
 
 	return (
 		<Container>
@@ -90,18 +97,27 @@ const Navbar = () => {
 					</Center>
 				</Link>
 				<Right>
-					<MenuLink>
-						<Link className="link" to="/login">
-							LOGIN
-						</Link>
-					</MenuLink>
+					{user ? (
+						<MenuLink>
+							<Link className="link" to="/" onClick={handleLogout}>
+								LOGOUT
+							</Link>
+						</MenuLink>
+					) : (
+						<>
+							<MenuLink>
+								<Link className="link" to="/login">
+									LOGIN
+								</Link>
+							</MenuLink>
 
-					<MenuLink>
-						<Link className="link" to="/register">
-							REGISTER
-						</Link>
-					</MenuLink>
-
+							<MenuLink>
+								<Link className="link" to="/register">
+									REGISTER
+								</Link>
+							</MenuLink>
+						</>
+					)}
 					<MenuLink>
 						<Badge badgeContent={cart.quantity}>
 							<Link className="link" to="/cart">

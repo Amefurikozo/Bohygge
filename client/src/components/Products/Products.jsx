@@ -68,8 +68,8 @@ const Products = ({ sort, categoryTitle }) => {
 				<SectionTitle title={categoryTitle || 'popular'}></SectionTitle>
 			</Right>
 			<Container>
-				{sortedProducts.map((item) => (
-					<Product item={item} key={item.id} />
+				{sortedProducts.map((item, index) => (
+					<Product item={item} key={index} />
 				))}
 			</Container>
 		</>
