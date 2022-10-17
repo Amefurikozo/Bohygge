@@ -4,7 +4,7 @@ const Product = require('../models/Product')
 // CREATE A PRODUCT LISTING
 router.post('/', async (req, res) => {
 	const newProduct = new Product(req.body)
-
+	console.log(newProduct)
 	try {
 		const product = await newProduct.save()
 		res.status(200).json(product)

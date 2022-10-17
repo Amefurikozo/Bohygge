@@ -75,7 +75,6 @@ const Navbar = () => {
 	const cart = useSelector((state) => state.cart)
 	const user = useSelector((state) => state.user.currentUser)
 	const dispatch = useDispatch()
-
 	const handleLogout = () => {
 		dispatch(logout())
 	}
@@ -84,6 +83,13 @@ const Navbar = () => {
 		<Container>
 			<Wrapper>
 				<Left>
+					{user.username === 'admin' && (
+						<MenuLink>
+							<Link className="link" to="/dashboard">
+								ADMIN DASHBOARD
+							</Link>
+						</MenuLink>
+					)}
 					<Language>EN</Language>
 					<SearchContainer>
 						<Input></Input>

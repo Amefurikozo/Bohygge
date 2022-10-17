@@ -12,6 +12,7 @@ import CategoryProducts from './pages/CategoryProducts/CategoryProducts'
 import SingleProduct from './pages/SingleProduct/SingleProduct'
 import Cart from './pages/Cart/Cart'
 import { useSelector } from 'react-redux'
+import Dashboard from './pages/Dashboard'
 
 function App() {
 	const user = useSelector((state) => state.user.currentUser)
@@ -30,6 +31,12 @@ function App() {
 					<Route path="/products/:category" element={<CategoryProducts />} />
 					<Route path="/product/:id" element={<SingleProduct />} />
 					<Route path="/cart" element={<Cart />} />
+					<Route
+						path="/dashboard"
+						element={
+							user.username === 'admin' ? <Dashboard /> : <Navigate to="/" />
+						}
+					/>
 				</Routes>
 			</Router>
 		</>

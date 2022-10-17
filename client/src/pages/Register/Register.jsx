@@ -3,6 +3,7 @@ import registerImage from '../../images/Bohygge/register.jpg'
 import { useState } from 'react'
 import axios from 'axios'
 import { publicRequest } from '../../components/Utils'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 	display: flex;
@@ -179,12 +180,15 @@ const Register = () => {
 						Password{' '}
 						<Input
 							placeholder="Enter your Password."
+							type={'password'}
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</InputFields>
 					<ButtonsContainer>
 						<ButtonRegister onClick={handleSubmit}>sign up</ButtonRegister>
-						<ButtonLogin>login</ButtonLogin>
+						<Link className="link" to="/login">
+							<ButtonLogin>login</ButtonLogin>
+						</Link>
 					</ButtonsContainer>
 					{error && <Error>Something went wrong, please try again.</Error>}
 				</RegisterContainer>

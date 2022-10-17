@@ -1,7 +1,14 @@
 const mongoose = require('mongoose')
+const { customAlphabet } = require('nanoid')
+const alphabet = '0123456789abcdefghijklmnopqrstuvwxyz'
+const nanoid = customAlphabet(alphabet, 8)
 
 const ProductSchema = new mongoose.Schema(
 	{
+		_id: {
+			type: String,
+			default: () => nanoid().toUpperCase(),
+		},
 		title: {
 			type: String,
 			required: true,
@@ -20,7 +27,7 @@ const ProductSchema = new mongoose.Schema(
 		},
 		img: {
 			type: String,
-			required: false,
+			required: true,
 		},
 		category: {
 			type: String,

@@ -5,7 +5,7 @@ import { publicRequest } from '../components/Utils'
 const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		currentUser: null,
+		currentUser: '',
 		isFetching: false,
 		error: false,
 	},
@@ -24,7 +24,7 @@ const userSlice = createSlice({
 		},
 		logout: (state) => {
 			state.isFetching = false
-			state.currentUser = null
+			state.currentUser = ''
 			state.error = false
 		},
 	},

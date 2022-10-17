@@ -16,25 +16,21 @@ const Title = styled.div`
 `
 const InputContainer = styled.div`
 	width: fit-content;
-	height: 40px;
+	height: 42px;
 	background-color: white;
 	display: flex;
 	justify-content: space-between;
-	border-radius: 5px;
+	border-radius: 0px;
 	border: 1px solid black;
-	border-right: 0px;
 `
 
 const Input = styled.input`
 	border: none;
-	width: 200px;
-	padding-left: 20px;
-	border-top-left-radius: 5px;
-	border-bottom-left-radius: 5px;
+	width: 220px;
+	padding: 0px 10px;
 `
 
 const Button = styled.button`
-	flex: 1;
 	border: none;
 	width: 50px;
 	background-color: #000000;
@@ -42,8 +38,8 @@ const Button = styled.button`
 	display: flex;
 	align-items: center;
 	justify-content: center;
-	border-top-right-radius: 5px;
-	border-bottom-right-radius: 5px;
+	margin: auto;
+	border-radius: 0px;
 	cursor: pointer;
 	&:hover {
 		background-color: grey;

@@ -67,8 +67,8 @@ export const Divider = () => {
 }
 
 const BASE_URL = 'http://localhost:8000/api/'
-const TOKEN =
-	'eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJpZCI6IjYzM2RhYWRjNzRmY2E5MTgyMDgzOWQ5NyIsImlhdCI6MTY2NTY2MTExMiwiZXhwIjoxNjY2MjY1OTEyfQ.VhtAUHewRsro9h_99GRjAGWTa3g6EIGqVt5lNKfFhwo'
+const TOKEN = JSON.parse(JSON.parse(localStorage.getItem('persist:root')).user)
+	.currentUser.accessToken
 
 export const publicRequest = axios.create({
 	baseURL: BASE_URL,

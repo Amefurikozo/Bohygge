@@ -3,6 +3,7 @@ import loginImage from '../../images/Bohygge/login.jpg'
 import { useEffect, useState } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
 import { login } from '../../redux/userRedux'
+import { Link } from 'react-router-dom'
 
 const Container = styled.div`
 	display: flex;
@@ -174,7 +175,9 @@ const Login = () => {
 						<ButtonLogin onClick={handleClick} disabled={isFetching}>
 							sign in
 						</ButtonLogin>
-						<ButtonRegister>register</ButtonRegister>
+						<Link className="link" to="/register">
+							<ButtonRegister>register</ButtonRegister>
+						</Link>
 					</ButtonsContainer>
 					{error && <Error>Something went wrong, please try again.</Error>}
 				</LoginContainer>
