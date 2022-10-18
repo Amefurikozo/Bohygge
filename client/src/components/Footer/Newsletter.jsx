@@ -5,6 +5,9 @@ const Container = styled.div`
 	display: flex;
 	align-items: center;
 	margin: 40px 0px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `
 const Title = styled.div`
 	font-size: 20px;
@@ -13,6 +16,10 @@ const Title = styled.div`
 	font-weight: 500;
 	margin: auto 0;
 	margin-right: 20px;
+	@media (max-width: 768px) {
+		font-size: 16px;
+		margin-right: 12px;
+	}
 `
 const InputContainer = styled.div`
 	width: fit-content;
@@ -22,6 +29,7 @@ const InputContainer = styled.div`
 	justify-content: space-between;
 	border-radius: 0px;
 	border: 1px solid black;
+	border-right: 0px;
 `
 
 const Input = styled.input`

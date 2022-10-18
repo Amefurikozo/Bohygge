@@ -25,6 +25,13 @@ const FieldTitles = styled.div`
 		text-transform: uppercase;
 		text-align: center;
 	}
+	@media (max-width: 768px) {
+		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
+			display: none;
+		}
+		width: 100vw;
+		padding: 0px;
+	}
 `
 const Image = styled.div``
 const Title = styled.div``
@@ -51,13 +58,27 @@ const ProductFields = styled.div`
 		word-wrap: break-word;
 		text-align: center;
 	}
+	@media (max-width: 768px) {
+		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
+			display: none;
+		}
+		> * {
+			width: 130px;
+		}
+		width: 100vw;
+	}
 `
 const ProductImage = styled.img`
 	height: 220px;
 	object-fit: cover;
+	@media (max-width: 768px) {
+		height: 190px;
+	}
 `
 const ProductTitle = styled.div`
+	text-transform: uppercase;
 	font-size: 12px;
+	font-weight: 500;
 `
 const ProductId = styled.div`
 	font-size: 13px;
@@ -68,6 +89,11 @@ const ProductActions = styled.div`
 	> * {
 		margin: 0px 15px;
 	}
+	@media (max-width: 768px) {
+		> * {
+			margin: 0px 10px;
+		}
+	}
 `
 
 const Hr = styled.hr`
@@ -76,6 +102,9 @@ const Hr = styled.hr`
 	width: 1280px;
 	height: 1px;
 	margin: 10px auto;
+	@media (max-width: 768px) {
+		width: 90vw;
+	}
 `
 
 const AllProducts = () => {

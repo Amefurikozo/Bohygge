@@ -57,3 +57,29 @@ h1,
 h3 {
 	text-align: center;
 }
+
+.totalPrice {
+	margin: 15px;
+	font-weight: 500;
+}
+
+@media (max-width: 768px) {
+	.FormGroup {
+		margin: 0px;
+		width: 300px;
+	}
+
+	button {
+		width: 200px;
+		margin: 20px 0px;
+	}
+
+	h1,
+	h3 {
+		text-align: left;
+	}
+
+	.totalPrice {
+		margin: 0px;
+	}
+}

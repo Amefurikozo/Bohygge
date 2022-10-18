@@ -11,6 +11,9 @@ const Container = styled.div`
 	display: flex;
 	justify-content: center;
 	flex-wrap: wrap;
+	@media (max-width: 768px) {
+		margin: 10px 0px;
+	}
 `
 
 const CategoryCards = () => {

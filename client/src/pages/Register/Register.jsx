@@ -9,6 +9,10 @@ const Container = styled.div`
 	display: flex;
 	height: calc(100vh - 70px);
 	overflow: hidden;
+	@media (max-width: 768px) {
+		height: fit-content;
+		flex-direction: column-reverse;
+	}
 `
 // LEFT
 const Left = styled.div`
@@ -32,16 +36,26 @@ const AboutUs = styled.div`
 	left: 0;
 	margin: auto;
 	padding: 60px;
+	@media (max-width: 768px) {
+		width: 350px;
+		padding: 30px;
+	}
 `
 const Title = styled.h1`
 	font-size: 70px;
 	color: white;
 	margin-bottom: 10px;
+	@media (max-width: 768px) {
+		font-size: 38px;
+	}
 `
 const SubTitle = styled.h1`
 	font-size: 22px;
 	color: white;
 	margin: 10px 0px;
+	@media (max-width: 768px) {
+		font-size: 20px;
+	}
 `
 const Description = styled.h5`
 	font-size: 14px;
@@ -69,10 +83,17 @@ const RegisterContainer = styled.div`
 	flex-direction: column;
 	align-items: center;
 	padding: 20px;
+	@media (max-width: 768px) {
+		margin-bottom: 40px;
+	}
 `
 const RegisterTitle = styled.h1`
 	font-size: 70px;
 	margin-bottom: 60px;
+	@media (max-width: 768px) {
+		font-size: 40px;
+		margin-bottom: 40px;
+	}
 `
 const InputFields = styled.div`
 	display: flex;

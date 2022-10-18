@@ -40,10 +40,20 @@ const AddProductButton = styled.div`
 	color: white;
 	font-weight: 600;
 	cursor: pointer;
+	@media (max-width: 768px) {
+		width: 140px;
+	}
 `
 const Label = styled.label`
 	margin-bottom: 5px;
 	font-weight: bold;
+`
+const Input = styled.input`
+	width: 450px;
+	padding: 10px;
+	@media (max-width: 768px) {
+		width: 330px;
+	}
 `
 
 const TextArea = styled.textarea`
@@ -52,6 +62,10 @@ const TextArea = styled.textarea`
 	min-height: 100px;
 	max-height: 500px;
 	padding: 10px;
+	@media (max-width: 768px) {
+		min-width: 330px;
+		max-width: 330px;
+	}
 `
 
 const Select = styled.select`
@@ -87,6 +101,7 @@ export default function AddProduct() {
 				(snapshot) => {
 					const progress =
 						(snapshot.bytesTransferred / snapshot.totalBytes) * 100
+					console.log(progress)
 					switch (snapshot.state) {
 						case 'paused':
 							console.log('Upload is paused')
@@ -106,7 +121,6 @@ export default function AddProduct() {
 						const product = { ...inputs, img: downloadURL }
 						addProduct(product, dispatch)
 					})
-					window.location.reload()
 				}
 			)
 		} catch (error) {
@@ -127,21 +141,19 @@ export default function AddProduct() {
 				</AddProductItem>
 				<AddProductItem>
 					<Label>Title</Label>
-					<input
+					<Input
 						name="title"
 						type="text"
 						placeholder="Product name*"
-						style={{ width: '450px', padding: '10px' }}
 						onChange={handleChange}
 					/>
 				</AddProductItem>
 				<AddProductItem>
 					<Label>Price</Label>
-					<input
+					<Input
 						name="price"
 						type="number"
 						placeholder="Product price*"
-						style={{ width: '450px', padding: '10px' }}
 						onChange={handleChange}
 					/>
 				</AddProductItem>
@@ -176,6 +188,7 @@ export default function AddProduct() {
 						<Option value="candles">Candles</Option>
 						<Option value="art">Art</Option>
 						<Option value="outdoors">Outdoors</Option>
+						<Option value="popular">Popular</Option>
 					</Select>
 				</AddProductItem>
 				{error && (

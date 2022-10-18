@@ -7,6 +7,10 @@ const FormFieldContainer = styled.div`
 	margin-bottom: 15px;
 	width: 400px;
 	padding: 0px 15px;
+	@media (max-width: 768px) {
+		width: 300px;
+		padding: 0px;
+	}
 `
 
 const Label = styled.label`
@@ -33,6 +37,11 @@ const Input = styled.input`
 		color: #b6b6b6;
 		font-family: 'Open Sans', 'Helvetica Neue', sans-serif;
 		font-weight: 500;
+	}
+	@media (max-width: 768px) {
+		&::placeholder {
+			font-size: 14px;
+		}
 	}
 `
 

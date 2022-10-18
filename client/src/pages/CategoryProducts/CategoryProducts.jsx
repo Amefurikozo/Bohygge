@@ -14,18 +14,29 @@ const FilterContainer = styled.div`
 	justify-content: space-between;
 	position: absolute;
 	height: 90px;
+	@media (max-width: 768px) {
+		position: relative;
+		justify-content: end;
+	}
 `
 
 const Filter = styled.div`
 	margin: 0px 20px;
 	display: flex;
 	align-items: center;
+	@media (max-width: 768px) {
+		margin: 0px 0px;
+		margin-left: 10px;
+	}
 `
 
 const FilterText = styled.span`
 	font-size: 20px;
 	font-weight: 700;
 	margin-right: 20px;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `
 
 const Select = styled.select`
@@ -67,6 +78,7 @@ const CategoryProducts = () => {
 						<Option>Candles</Option>
 						<Option>Art</Option>
 						<Option>Outdoors</Option>
+						<Option>Popular</Option>
 					</Select>
 				</Filter>
 				<Filter>
@@ -76,7 +88,6 @@ const CategoryProducts = () => {
 						<Option value="old">Oldest</Option>
 						<Option value="low">Price (low to high)</Option>
 						<Option value="high">Price (high to low)</Option>
-						<Option value="popular">Popular</Option>
 					</Select>
 				</Filter>
 			</FilterContainer>

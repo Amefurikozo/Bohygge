@@ -20,11 +20,19 @@ const Container = styled.div`
 	display: flex;
 	flex-direction: column;
 	align-items: center;
+	@media (max-width: 768px) {
+		width: 330px;
+		padding: 10px;
+	}
 `
 
 const Wrapper = styled.div`
 	padding: 20px;
 	margin: 30px 0px;
+	@media (max-width: 768px) {
+		width: 330px;
+		padding: 10px;
+	}
 `
 
 const Title = styled.h1`
@@ -32,9 +40,18 @@ const Title = styled.h1`
 	text-align: center;
 	margin-bottom: 60px;
 	font-size: 40px;
+	@media (max-width: 768px) {
+		font-size: 26px;
+		font-weight: 300;
+		width: fit-content;
+		margin-bottom: 30px;
+	}
 `
 const ShoppingInfoContainer = styled.div`
 	display: flex;
+	@media (max-width: 768px) {
+		flex-direction: column;
+	}
 `
 
 const Info = styled.div`
@@ -47,6 +64,9 @@ const Item = styled.div`
 	position: relative;
 	border-right: 1px solid lightgrey;
 	padding-right: 25px;
+	@media (max-width: 768px) {
+		border: 0px;
+	}
 `
 
 const ItemDetail = styled.div`
@@ -58,23 +78,39 @@ const Image = styled.img`
 	width: 200px;
 	height: 300px;
 	object-fit: cover;
+	@media (max-width: 768px) {
+		width: 120px;
+		height: 200px;
+	}
 `
 
 const Details = styled.div`
 	padding: 20px;
 	display: flex;
 	flex-direction: column;
+	@media (max-width: 768px) {
+		width: calc(100vw - 180px);
+		padding: 15px;
+	}
 `
 
 const ItemName = styled.span`
 	font-variant: small-caps;
 	font-size: 20px;
 	display: flex;
+	align-items: center;
+	@media (max-width: 768px) {
+		margin-top: 15px;
+		font-size: 18px;
+	}
 `
 const ItemSectionTitle = styled.div`
 	font-variant: normal;
 	font-weight: 500;
 	margin-right: 10px;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `
 const Description = styled.p`
 	width: 500px;
@@ -82,11 +118,17 @@ const Description = styled.p`
 	font-size: 13px;
 	text-align: justify;
 	margin-bottom: 10px;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `
 const ItemID = styled.span`
 	display: flex;
 	margin: 5px 0px;
 	font-size: 12px;
+	@media (max-width: 768px) {
+		font-size: 10px;
+	}
 `
 const PriceQuantityDetails = styled.div`
 	flex: 1;
@@ -115,6 +157,10 @@ const Quantity = styled.span`
 	align-items: center;
 	justify-content: center;
 	margin: 0px 5px;
+	@media (max-width: 768px) {
+		width: 25px;
+		height: 25px;
+	}
 `
 
 const IconContainer = styled.div`
@@ -128,6 +174,10 @@ const IconContainer = styled.div`
 		font-size: 30px;
 		transition: all 100ms linear;
 	}
+	@media (max-width: 768px) {
+		width: 25px;
+		height: 25px;
+	}
 `
 const ItemPrice = styled.div`
 	width: 130px;
@@ -139,6 +189,10 @@ const ItemPrice = styled.div`
 	font-size: 30px;
 	font-weight: 400;
 	font-variant: small-caps;
+	@media (max-width: 768px) {
+		font-size: 20px;
+		width: 90px;
+	}
 `
 const Hr = styled.hr`
 	background-color: lightgray;
@@ -155,10 +209,20 @@ const Summary = styled.div`
 	margin: 0px 30px;
 	display: flex;
 	flex-direction: column;
+	@media (max-width: 768px) {
+		width: 280px;
+		padding: 0px;
+		margin: 0px;
+	}
 `
 const SummaryTitle = styled.h1`
 	font-weight: 200;
 	margin-bottom: 30px;
+	@media (max-width: 768px) {
+		font-size: 24px;
+		text-align: left;
+		margin-bottom: 20px;
+	}
 `
 const SummaryItem = styled.div`
 	margin: 10px 0px;
@@ -201,92 +265,95 @@ const Cart = () => {
 	}
 
 	return (
-		<Container>
-			<Wrapper>
-				<Title>YOUR SHOPPING LIST</Title>
-				<ShoppingInfoContainer>
-					<Info>
-						{cart.products.map((product, index) => (
-							<div key={index}>
-								<Item>
-									<ItemDetail>
-										<Image src={cartImage1} />
-										<Details>
-											<ItemName>
-												<ItemSectionTitle>Item: </ItemSectionTitle>
-												{product.title}
-											</ItemName>
-											<ItemID>
-												<ItemSectionTitle>ID: </ItemSectionTitle> {product._id}
-											</ItemID>
-											<Description>{product.desc}</Description>
-											<PriceQuantityDetails>
-												<OptionsContainer>
-													<QuantityContainer>
-														<IconContainer>
-															<RemoveIcon
-																onClick={() =>
-																	handleQuantity('decrease', index)
-																}
-															/>
-														</IconContainer>
-														<Quantity>{product.quantity}</Quantity>
-														<IconContainer>
-															<AddIcon
-																onClick={() =>
-																	handleQuantity('increase', index)
-																}
-															/>
-														</IconContainer>
-													</QuantityContainer>
-												</OptionsContainer>
-												<ItemPrice>
-													{product.price * product.quantity}€
-												</ItemPrice>
-											</PriceQuantityDetails>
-										</Details>
-									</ItemDetail>
-									<ClearIcon
-										style={{
-											position: 'absolute',
-											right: '10px',
-											cursor: 'pointer',
-										}}
-										onClick={() => handleItemRemoval(index)}
-									/>
-								</Item>
-								<Hr />
-							</div>
-						))}
-					</Info>
-					{showCheckoutForm ? (
-						<StripeContainer />
-					) : (
-						<Summary>
-							<SummaryTitle>ORDER SUMMARY</SummaryTitle>
-							<SummaryItem>
-								<SummaryItemText>Subtotal</SummaryItemText>
-								<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
-							</SummaryItem>
-							<SummaryItem>
-								<SummaryItemText>Discount</SummaryItemText>
-								<SummaryItemPrice>0%</SummaryItemPrice>
-							</SummaryItem>
-							<SummaryItem>
-								<SummaryItemText>Estimated Shipping</SummaryItemText>
-								<SummaryItemPrice>0€</SummaryItemPrice>
-							</SummaryItem>
-							<SummaryItem type="bold">
-								<SummaryItemText>Total</SummaryItemText>
-								<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
-							</SummaryItem>
-							<Button onClick={handleCheckout}>CHECKOUT NOW</Button>
-						</Summary>
-					)}
-				</ShoppingInfoContainer>
-			</Wrapper>
+		<>
+			<Container>
+				<Wrapper>
+					<Title>YOUR SHOPPING LIST</Title>
+					<ShoppingInfoContainer>
+						<Info>
+							{cart.products.map((product, index) => (
+								<div key={index}>
+									<Item>
+										<ItemDetail>
+											<Image src={cartImage1} />
+											<Details>
+												<ItemName>
+													<ItemSectionTitle>Item: </ItemSectionTitle>
+													{product.title}
+												</ItemName>
+												<ItemID>
+													<ItemSectionTitle>ID: </ItemSectionTitle>{' '}
+													{product._id}
+												</ItemID>
+												<Description>{product.desc}</Description>
+												<PriceQuantityDetails>
+													<OptionsContainer>
+														<QuantityContainer>
+															<IconContainer>
+																<RemoveIcon
+																	onClick={() =>
+																		handleQuantity('decrease', index)
+																	}
+																/>
+															</IconContainer>
+															<Quantity>{product.quantity}</Quantity>
+															<IconContainer>
+																<AddIcon
+																	onClick={() =>
+																		handleQuantity('increase', index)
+																	}
+																/>
+															</IconContainer>
+														</QuantityContainer>
+													</OptionsContainer>
+													<ItemPrice>
+														{product.price * product.quantity}€
+													</ItemPrice>
+												</PriceQuantityDetails>
+											</Details>
+										</ItemDetail>
+										<ClearIcon
+											style={{
+												position: 'absolute',
+												right: '10px',
+												cursor: 'pointer',
+											}}
+											onClick={() => handleItemRemoval(index)}
+										/>
+									</Item>
+									<Hr />
+								</div>
+							))}
+						</Info>
+						{showCheckoutForm ? (
+							<StripeContainer />
+						) : (
+							<Summary>
+								<SummaryTitle>ORDER SUMMARY</SummaryTitle>
+								<SummaryItem>
+									<SummaryItemText>Subtotal</SummaryItemText>
+									<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
+								</SummaryItem>
+								<SummaryItem>
+									<SummaryItemText>Discount</SummaryItemText>
+									<SummaryItemPrice>0%</SummaryItemPrice>
+								</SummaryItem>
+								<SummaryItem>
+									<SummaryItemText>Estimated Shipping</SummaryItemText>
+									<SummaryItemPrice>0€</SummaryItemPrice>
+								</SummaryItem>
+								<SummaryItem type="bold">
+									<SummaryItemText>Total</SummaryItemText>
+									<SummaryItemPrice>{cart.total}€</SummaryItemPrice>
+								</SummaryItem>
+								<Button onClick={handleCheckout}>CHECKOUT NOW</Button>
+							</Summary>
+						)}
+					</ShoppingInfoContainer>
+				</Wrapper>
+			</Container>
 			<Footer />
-		</Container>
+		</>
 	)
 }
 

@@ -9,6 +9,9 @@ const Container = styled.div`
 	display: flex;
 	justify-content: space-around;
 	flex-wrap: wrap;
+	@media (max-width: 768px) {
+		margin: 10px 0px;
+	}
 `
 
 const Concepts = () => {

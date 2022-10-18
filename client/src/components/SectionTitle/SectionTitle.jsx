@@ -8,6 +8,10 @@ const SectionTitleContainer = styled.div`
 	color: white;
 	text-align: center;
 	text-transform: uppercase;
+	@media (max-width: 768px) {
+		width: 320px;
+		font-size: 32px;
+	}
 `
 
 export const SectionTitle = ({ title }) => {

@@ -13,6 +13,10 @@ import Newsletter from './Newsletter'
 const Container = styled.div`
 	display: flex;
 	padding: 40px;
+	@media (max-width: 768px) {
+		flex-direction: column;
+		padding: 10px;
+	}
 `
 const FooterSectionTitle = styled.div`
 	margin-bottom: 20px;
@@ -37,6 +41,9 @@ const Logo = styled.h1`
 `
 const About = styled.p`
 	text-align: justify;
+	@media (max-width: 768px) {
+		font-size: 13px;
+	}
 `
 const Social = styled.div`
 	padding: 20px 0px;
@@ -49,6 +56,9 @@ const Center = styled.div`
 	padding: 20px;
 	display: flex;
 	justify-content: center;
+	@media (max-width: 768px) {
+		padding: 10px;
+	}
 `
 
 const SiteMap = styled.div``
@@ -61,6 +71,9 @@ const List = styled.ul`
 	flex-direction: column;
 	justify-content: space-between;
 	margin: auto;
+	@media (max-width: 768px) {
+		font-size: 13px;
+	}
 `
 const ListItem = styled.li`
 	margin-bottom: 5px;
@@ -71,12 +84,19 @@ const ListItem = styled.li`
 	&:hover {
 		font-weight: 800;
 	}
+	@media (max-width: 768px) {
+		width: 130px;
+		margin-bottom: 2px;
+	}
 `
 
 // RIGHT
 const Right = styled.div`
 	flex: 1;
 	padding: 20px;
+	> * {
+		font-size: 14px;
+	}
 `
 const FindUs = styled.div``
 const Address = styled.div`

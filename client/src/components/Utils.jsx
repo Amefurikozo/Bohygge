@@ -39,6 +39,14 @@ export const tabletLG = (props) => {
 }
 export const pcSM = (props) => {
 	return css`
+		@media only screen and (max-width: 1400px) {
+			${props}
+		}
+	`
+}
+
+export const pcMD = (props) => {
+	return css`
 		@media only screen and (max-width: 1600px) {
 			${props}
 		}

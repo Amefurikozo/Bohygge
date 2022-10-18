@@ -17,6 +17,11 @@ const Container = styled.div`
 	right: 0;
 	top: 70px;
 	margin: auto;
+	@media (max-width: 768px) {
+		font-size: 10px;
+		width: 100vw;
+		height: 35px;
+	}
 `
 
 const Slogan = () => {

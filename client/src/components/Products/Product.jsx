@@ -18,19 +18,28 @@ const Info = styled.div`
 	justify-content: center;
 	transition: all 0.5s ease;
 	cursor: pointer;
+	border-radius: 20px;
+	@media (max-width: 768px) {
+		border-radius: 10px;
+	}
 `
 
 const Container = styled.div`
-	flex: 1;
-	margin: 5px;
-	min-width: 280px;
+	margin: 10px 10px;
+	width: 280px;
 	height: 350px;
 	display: flex;
 	align-items: center;
 	justify-content: center;
 	position: relative;
+	border-radius: 20px;
 	&:hover ${Info} {
 		opacity: 1;
+	}
+	@media (max-width: 768px) {
+		width: 140px;
+		height: 175px;
+		border-radius: 10px;
 	}
 `
 
@@ -39,6 +48,12 @@ const Image = styled.img`
 	height: 100%;
 	z-index: 2;
 	object-fit: cover;
+	border-radius: 20px;
+	@media (max-width: 768px) {
+		width: 140px;
+		height: 175px;
+		border-radius: 10px;
+	}
 `
 
 const Price = styled.div`
@@ -51,6 +66,11 @@ const Price = styled.div`
 	text-align: center;
 	background-color: white;
 	border-radius: 5px;
+	@media (max-width: 768px) {
+		width: 60px;
+		padding: 5px;
+		font-size: 13px;
+	}
 `
 
 const Icon = styled.div`

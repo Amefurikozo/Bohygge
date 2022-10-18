@@ -6,11 +6,14 @@ import { SectionTitle } from '../SectionTitle/SectionTitle'
 import axios from 'axios'
 
 const Container = styled.div`
-	margin: 60px 0px;
+	margin: 50px 0px;
 	padding: 20px;
 	display: flex;
 	flex-wrap: wrap;
-	justify-content: space-between;
+	justify-content: center;
+	@media (max-width: 768px) {
+		margin: 10px 0px;
+	}
 `
 const Right = styled.div`
 	display: flex;

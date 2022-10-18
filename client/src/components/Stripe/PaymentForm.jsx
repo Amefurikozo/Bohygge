@@ -78,7 +78,7 @@ export default function PaymentForm() {
 	return (
 		<>
 			{!success ? (
-				<form onSubmit={handleSubmit}>
+				<form onSubmit={handleSubmit} style={{ marginLeft: '0px' }}>
 					<BillingDetails />
 					<fieldset className="FormGroup">
 						<div className="FormRow">
@@ -86,9 +86,7 @@ export default function PaymentForm() {
 						</div>
 					</fieldset>
 					<button>CONFIRM</button>
-					<div style={{ margin: '15px', fontWeight: 'bold' }}>
-						Total Price: {cart.total}€
-					</div>
+					<div className="totalPrice">Total Price: {cart.total}€</div>
 				</form>
 			) : (
 				<div className="success">

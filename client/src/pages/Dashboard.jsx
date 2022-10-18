@@ -16,6 +16,12 @@ const AdminButton = styled.button`
 	background-color: ${(props) => (props.selected ? 'black' : 'white')};
 	color: ${(props) => (props.selected ? 'white' : 'black')};
 	border: 2px solid black;
+	@media (max-width: 768px) {
+		width: 160px;
+		font-size: 14px;
+		margin: 10px;
+		margin-top: 30px;
+	}
 `
 const Left = styled.div``
 const Right = styled.div``

@@ -13,6 +13,10 @@ const Container = styled.div`
 	display: flex;
 	margin-bottom: 80px;
 	overflow: hidden;
+	@media (max-width: 768px) {
+		height: 400px;
+		margin-bottom: 40px;
+	}
 `
 
 const Wrapper = styled.div`
@@ -36,6 +40,9 @@ const Img = styled.img`
 	width: 65vw;
 	height: 100%;
 	object-fit: cover;
+	@media (max-width: 768px) {
+		width: 100vw;
+	}
 `
 const InfoContainer = styled.div`
 	width: 35vw;
@@ -44,6 +51,9 @@ const InfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media (max-width: 768px) {
+		display: none;
+	}
 `
 const Title = styled.h1`
 	font-size: 50px;
@@ -83,6 +93,11 @@ const Arrow = styled.div`
 
 	&:hover {
 		opacity: 1;
+	}
+
+	@media (max-width: 768px) {
+		width: 30px;
+		height: 30px;
 	}
 `
 

@@ -7,6 +7,16 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../redux/userRedux'
+import {
+	phoneSM,
+	phoneLG,
+	tabletSM,
+	tabletMD,
+	tabletLG,
+	pcSM,
+	pcMD,
+	pcLG,
+} from '../components/Utils'
 
 const Container = styled.div`
 	height: 70px;
@@ -16,6 +26,9 @@ const Wrapper = styled.div`
 	padding: 10px 20px;
 	display: flex;
 	justify-content: space-between;
+	@media (max-width: 768px) {
+		padding: 13px 0px;
+	}
 `
 
 // LEFT
@@ -40,6 +53,20 @@ const Input = styled.input`
 	padding: 5px;
 	border: none;
 `
+const MenuLinkAdmin = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	font-size: 16px;
+	font-variant: small-caps;
+	margin-left: 10px;
+	padding: 0px 10px;
+	width: fit-content;
+	height: 40px;
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
+`
 
 // CENTER
 const Center = styled.div`
@@ -50,6 +77,10 @@ const Center = styled.div`
 `
 const Logo = styled.h1`
 	font-weight: 400;
+	@media (max-width: 768px) {
+		font-size: 18px;
+		display: none;
+	}
 `
 
 // RIGHT
@@ -69,6 +100,7 @@ const MenuLink = styled.div`
 	padding: 0px 10px;
 	width: fit-content;
 	height: 40px;
+	${tabletSM({ fontSize: '12px', margin: '0px' })}
 `
 
 const Navbar = () => {
@@ -84,11 +116,11 @@ const Navbar = () => {
 			<Wrapper>
 				<Left>
 					{user.username === 'admin' && (
-						<MenuLink>
+						<MenuLinkAdmin>
 							<Link className="link" to="/dashboard">
-								ADMIN DASHBOARD
+								DASHBOARD
 							</Link>
-						</MenuLink>
+						</MenuLinkAdmin>
 					)}
 					<Language>EN</Language>
 					<SearchContainer>
