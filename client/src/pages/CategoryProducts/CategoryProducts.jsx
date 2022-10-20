@@ -14,7 +14,7 @@ const FilterContainer = styled.div`
 	justify-content: space-between;
 	position: absolute;
 	height: 90px;
-	@media (max-width: 768px) {
+	@media (max-width: 1270px) {
 		position: relative;
 		justify-content: end;
 	}

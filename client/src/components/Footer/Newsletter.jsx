@@ -3,19 +3,22 @@ import SendIcon from '@mui/icons-material/Send'
 
 const Container = styled.div`
 	display: flex;
-	align-items: center;
+	flex-direction: column;
+	align-items: left;
 	margin: 40px 0px;
 	@media (max-width: 768px) {
 		flex-direction: column;
+		align-items: flex-start;
+		margin: 20px 0px;
 	}
 `
 const Title = styled.div`
 	font-size: 20px;
 	margin-bottom: 20px;
 	font-variant: small-caps;
-	font-weight: 500;
+	font-weight: 700;
 	margin: auto 0;
-	margin-right: 20px;
+	padding-left: 2px;
 	@media (max-width: 768px) {
 		font-size: 16px;
 		margin-right: 12px;
@@ -30,12 +33,14 @@ const InputContainer = styled.div`
 	border-radius: 0px;
 	border: 1px solid black;
 	border-right: 0px;
+	margin-top: 5px;
 `
 
 const Input = styled.input`
 	border: none;
 	width: 220px;
 	padding: 0px 10px;
+	font-weight: 900;
 `
 
 const Button = styled.button`

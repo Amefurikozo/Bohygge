@@ -11,10 +11,14 @@ const Container = styled.div`
 	width: 100%;
 	height: calc(100vh - 70px);
 	display: flex;
-	margin-bottom: 80px;
+	margin-bottom: 70px;
 	overflow: hidden;
-	@media (max-width: 768px) {
+	@media (max-width: 767px) {
 		height: 400px;
+		margin-bottom: 40px;
+	}
+	@media (min-width: 767px) and (max-width: 1100px) {
+		height: 500px;
 		margin-bottom: 40px;
 	}
 `
@@ -37,10 +41,10 @@ const ImgContainer = styled.div`
 	position: relative;
 `
 const Img = styled.img`
-	width: 65vw;
+	width: 75vw;
 	height: 100%;
 	object-fit: cover;
-	@media (max-width: 768px) {
+	@media (max-width: 1400px) {
 		width: 100vw;
 	}
 `
@@ -51,17 +55,28 @@ const InfoContainer = styled.div`
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
-	@media (max-width: 768px) {
+	@media (max-width: 1400px) {
 		display: none;
 	}
 `
+const CircleImage = styled.img`
+	object-fit: cover;
+	width: 300px;
+	height: 250px;
+	border-radius: 10%;
+	margin: auto;
+`
 const Title = styled.h1`
-	font-size: 50px;
+	font-size: 26px;
+	text-align: center;
+	text-transform: uppercase;
 `
 const Desc = styled.p`
-	margin-top: 20px;
-	font-size: 20px;
+	font-size: 18px;
 	font-weight: 400;
+	text-align: justify;
+	width: 300px;
+	margin: 10px auto;
 `
 const Button = styled.button`
 	margin-top: 20px;
@@ -138,7 +153,8 @@ const Slider = () => {
 						<InfoContainer>
 							<Title>{item.title}</Title>
 							<Desc>{item.desc}</Desc>
-							<Button>{item.btn}</Button>
+							<CircleImage src={item.sideimg1}></CircleImage>
+							<CircleImage src={item.sideimg2}></CircleImage>
 						</InfoContainer>
 					</Slide>
 				))}

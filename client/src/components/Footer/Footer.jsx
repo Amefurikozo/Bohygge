@@ -13,91 +13,30 @@ import Newsletter from './Newsletter'
 const Container = styled.div`
 	display: flex;
 	padding: 40px;
-	@media (max-width: 768px) {
+	background-color: black;
+	margin-top: 140px;
+	@media (max-width: 1000px) {
 		flex-direction: column;
 		padding: 10px;
 	}
-`
-const FooterSectionTitle = styled.div`
-	margin-bottom: 20px;
-	font-weight: 500;
 `
 
 // LEFT
 const Left = styled.div`
 	flex: 1;
+	padding: 20px;
 	display: flex;
 	flex-direction: column;
-	padding: 20px;
-`
-const LogoContainer = styled.div`
-	display: flex;
+	justify-content: center;
 	align-items: center;
-	justify-content: center;
-	margin-bottom: 25px;
-`
-const Logo = styled.h1`
-	font-weight: 400;
-`
-const About = styled.p`
-	text-align: justify;
-	@media (max-width: 768px) {
-		font-size: 13px;
-	}
-`
-const Social = styled.div`
-	padding: 20px 0px;
-	margin: auto;
-`
-
-// CENTER
-const Center = styled.div`
-	flex: 1;
-	padding: 20px;
-	display: flex;
-	justify-content: center;
-	@media (max-width: 768px) {
-		padding: 10px;
-	}
-`
-
-const SiteMap = styled.div``
-const AccountLinks = styled.div``
-
-const List = styled.ul`
-	width: fit-content;
-	list-style: none;
-	display: flex;
-	flex-direction: column;
-	justify-content: space-between;
-	margin: auto;
-	@media (max-width: 768px) {
-		font-size: 13px;
-	}
-`
-const ListItem = styled.li`
-	margin-bottom: 5px;
-	cursor: pointer;
-	height: 22px;
-	width: 185px;
-
-	&:hover {
-		font-weight: 800;
-	}
-	@media (max-width: 768px) {
-		width: 130px;
-		margin-bottom: 2px;
-	}
-`
-
-// RIGHT
-const Right = styled.div`
-	flex: 1;
-	padding: 20px;
 	> * {
 		font-size: 14px;
+		width: 290px;
+		font-weight: 500;
+		color: white;
 	}
 `
+
 const FindUs = styled.div``
 const Address = styled.div`
 	margin-bottom: 10px;
@@ -115,13 +54,114 @@ const Email = styled.div`
 	align-items: center;
 `
 
+// CENTER
+const Center = styled.div`
+	flex: 1;
+	display: flex;
+	flex-direction: column;
+	padding: 10px;
+`
+const LogoContainer = styled.div`
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	margin-bottom: 20px;
+`
+const Logo = styled.h1`
+	font-weight: 500;
+	color: white;
+`
+const About = styled.p`
+	text-align: justify;
+	font-size: 14px;
+	font-weight: 400;
+	color: white;
+	@media (max-width: 768px) {
+		font-size: 13px;
+	}
+`
+const Social = styled.div`
+	padding: 20px 0px;
+	margin: auto;
+	color: white;
+`
+
+// RIGHT
+const Right = styled.div`
+	flex: 1;
+	padding: 20px;
+	display: flex;
+	justify-content: center;
+	@media (max-width: 1000px) {
+		display: none;
+	}
+`
+const SiteMap = styled.div`
+	text-align: left;
+	color: white;
+`
+
+const List = styled.ul`
+	width: fit-content;
+	list-style: none;
+	display: flex;
+	flex-direction: column;
+	justify-content: space-between;
+	margin: auto;
+	font-weight: 400;
+	color: white;
+	@media (max-width: 768px) {
+		font-size: 13px;
+	}
+`
+const ListItem = styled.li`
+	margin-bottom: 5px;
+	cursor: pointer;
+	height: 22px;
+	width: 145px;
+
+	&:hover {
+		font-weight: 900;
+	}
+	@media (max-width: 768px) {
+		width: 130px;
+		margin-bottom: 2px;
+	}
+`
+
+const FooterSectionTitle = styled.div`
+	margin-bottom: 20px;
+	font-weight: 900;
+	color: white;
+`
+
 const Footer = () => {
 	return (
 		<Container>
 			<Left>
+				<FooterSectionTitle>WHERE TO FIND US</FooterSectionTitle>
+				<FindUs>
+					<Address>
+						<LocationOnIcon style={{ marginRight: '10px' }} /> Paradice City 00,
+						Zip: 01326, Greece
+					</Address>
+					<Phone>
+						<PhoneIcon style={{ marginRight: '10px' }} /> +00-0000000000
+					</Phone>
+					<Email>
+						<MailOutlineIcon style={{ marginRight: '10px' }} /> bohygge@fakemail
+					</Email>
+				</FindUs>
+				<Newsletter />
+			</Left>
+			<Center>
 				<LogoContainer>
 					<Logo>Bohygge</Logo>
-					<img src={logo} alt="" style={{ width: '40px' }} />
+					<img
+						src={logo}
+						alt=""
+						style={{ width: '40px', filter: 'invert(1)' }}
+					/>
 				</LogoContainer>
 				<About>
 					Active since 1991. We offer an alternative way of living with peace
@@ -139,8 +179,8 @@ const Footer = () => {
 					<InstagramIcon style={{ fontSize: '35px', marginRight: '5px' }} />
 					<EmailIcon style={{ fontSize: '35px', marginRight: '5px' }} />
 				</Social>
-			</Left>
-			<Center>
+			</Center>
+			<Right>
 				<SiteMap>
 					<FooterSectionTitle>SITE MAP</FooterSectionTitle>
 					<List>
@@ -151,33 +191,9 @@ const Footer = () => {
 						<ListItem>Candles</ListItem>
 						<ListItem>Art</ListItem>
 						<ListItem>Outdoors</ListItem>
-						<ListItem>About Us</ListItem>
-					</List>
-				</SiteMap>
-				<AccountLinks>
-					<FooterSectionTitle>ACCOUNT MAP</FooterSectionTitle>
-					<List>
-						<ListItem>Account</ListItem>
-						<ListItem>Wishlist</ListItem>
 						<ListItem>Cart</ListItem>
 					</List>
-				</AccountLinks>
-			</Center>
-			<Right>
-				<FooterSectionTitle>WHERE TO FIND US</FooterSectionTitle>
-				<FindUs>
-					<Address>
-						<LocationOnIcon style={{ marginRight: '10px' }} /> Paradice City 00,
-						Zip: 01326, Greece
-					</Address>
-					<Phone>
-						<PhoneIcon style={{ marginRight: '10px' }} /> +00-0000000000
-					</Phone>
-					<Email>
-						<MailOutlineIcon style={{ marginRight: '10px' }} /> bohygge@fakemail
-					</Email>
-				</FindUs>
-				<Newsletter />
+				</SiteMap>
 			</Right>
 		</Container>
 	)

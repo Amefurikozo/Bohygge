@@ -4,6 +4,7 @@ import { ProductsData } from './ProductsData'
 import Product from './Product'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import axios from 'axios'
+import boho from '../../images/boho4.png'
 
 const Container = styled.div`
 	margin: 50px 0px;
@@ -18,6 +19,23 @@ const Container = styled.div`
 const Right = styled.div`
 	display: flex;
 	justify-content: end;
+`
+
+const SectionImg = styled.img`
+	width: 90px;
+	height: 90px;
+	margin-left: 0px;
+	background-color: white;
+	filter: invert(1);
+
+	@media (max-width: 768px) {
+		height: 75px;
+		width: 75px;
+	}
+	@media (max-width: 380px) {
+		height: 70px;
+		width: 70px;
+	}
 `
 
 const Products = ({ sort, categoryTitle }) => {
@@ -68,6 +86,7 @@ const Products = ({ sort, categoryTitle }) => {
 	return (
 		<>
 			<Right>
+				{!categoryTitle && <SectionImg src={boho} alt="" srcset="" />}
 				<SectionTitle title={categoryTitle || 'popular'}></SectionTitle>
 			</Right>
 			<Container>

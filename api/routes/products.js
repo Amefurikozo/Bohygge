@@ -49,6 +49,21 @@ router.get('/find/:id', async (req, res) => {
 	}
 })
 
+router.get('/filter/:id', async (req, res) => {
+	try {
+		const filter = req.params.id
+		const regex = new RegExp(filter, 'i')
+		const product = await Product.find({
+			_id: {
+				$regex: regex,
+			},
+		})
+		res.status(200).json(product)
+	} catch (err) {
+		res.status(500).json(err)
+	}
+})
+
 // GET ALL PRODUCTS OR BY CATEGORY QUERY
 router.get('/', async (req, res) => {
 	const queryCategory = req.query.category

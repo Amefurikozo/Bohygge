@@ -24,12 +24,16 @@ const Container = styled.div`
 		width: 330px;
 		padding: 10px;
 	}
+	@media (min-width: 767px) and (max-width: 1270px) {
+		width: fit-content;
+		padding: 10px;
+	}
 `
 
 const Wrapper = styled.div`
 	padding: 20px;
 	margin: 30px 0px;
-	@media (max-width: 768px) {
+	@media (max-width: 1270px) {
 		width: 330px;
 		padding: 10px;
 	}
@@ -40,7 +44,7 @@ const Title = styled.h1`
 	text-align: center;
 	margin-bottom: 60px;
 	font-size: 40px;
-	@media (max-width: 768px) {
+	@media (max-width: 1270px) {
 		font-size: 26px;
 		font-weight: 300;
 		width: fit-content;
@@ -50,6 +54,9 @@ const Title = styled.h1`
 const ShoppingInfoContainer = styled.div`
 	display: flex;
 	@media (max-width: 768px) {
+		flex-direction: column;
+	}
+	@media (min-width: 767px) and (max-width: 1270px) {
 		flex-direction: column;
 	}
 `
@@ -82,6 +89,10 @@ const Image = styled.img`
 		width: 120px;
 		height: 200px;
 	}
+	@media (min-width: 767px) and (max-width: 1270px) {
+		width: 200px;
+		height: 300px;
+	}
 `
 
 const Details = styled.div`
@@ -90,6 +101,10 @@ const Details = styled.div`
 	flex-direction: column;
 	@media (max-width: 768px) {
 		width: calc(100vw - 180px);
+		padding: 15px;
+	}
+	@media (min-width: 767px) and (max-width: 1270px) {
+		width: calc(100vw - 300px);
 		padding: 15px;
 	}
 `
@@ -118,6 +133,7 @@ const Description = styled.p`
 	font-size: 13px;
 	text-align: justify;
 	margin-bottom: 10px;
+	padding-right: 25px;
 	@media (max-width: 768px) {
 		display: none;
 	}
@@ -275,7 +291,7 @@ const Cart = () => {
 								<div key={index}>
 									<Item>
 										<ItemDetail>
-											<Image src={cartImage1} />
+											<Image src={product.img} />
 											<Details>
 												<ItemName>
 													<ItemSectionTitle>Item: </ItemSectionTitle>

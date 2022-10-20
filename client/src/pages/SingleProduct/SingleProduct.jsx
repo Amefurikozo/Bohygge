@@ -23,14 +23,24 @@ const Wrapper = styled.div`
 		align-items: center;
 		margin-bottom: 60px;
 	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		margin-bottom: 60px;
+	}
 `
 
 const ImgContainer = styled.div`
+	min-width: 450px;
 	flex: 1;
 	@media (max-width: 768px) {
+		min-width: 350px;
 		width: 350px;
 		height: 400px;
 		margin-bottom: 20px;
+	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		min-width: 350px;
+		width: 350px;
+		height: 400px;
 	}
 `
 
@@ -42,6 +52,11 @@ const Image = styled.img`
 		width: 100%;
 		height: 100%;
 	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		min-width: 350px;
+		width: 350px;
+		height: 500px;
+	}
 `
 
 const InfoContainer = styled.div`
@@ -52,6 +67,11 @@ const InfoContainer = styled.div`
 		padding: 0px;
 		width: 350px;
 	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		min-width: 350px;
+		width: 350px;
+		padding: 20px;
+	}
 `
 
 const Title = styled.h1`
@@ -61,24 +81,39 @@ const Title = styled.h1`
 	@media (max-width: 768px) {
 		font-size: 20px;
 	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		font-size: 22px;
+	}
 `
 
 const Description = styled.p`
-	width: 700px;
+	width: 100%;
 	margin: 25px 0px;
 	text-align: justify;
 	@media (max-width: 768px) {
 		width: 350px;
 		font-size: 14px;
 	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		width: 350px;
+		font-size: 15px;
+		padding-right: 20px;
+		margin: 15px 0px;
+	}
 `
 const SubDescription = styled.p`
-	width: 700px;
+	width: 100%;
 	margin: 25px 0px;
 	text-align: justify;
 	@media (max-width: 768px) {
 		width: 350px;
 		font-size: 14px;
+	}
+	@media (min-width: 767px) and (max-width: 1000px) {
+		width: 350px;
+		font-size: 15px;
+		padding-right: 20px;
+		margin: 15px 0px;
 	}
 `
 
@@ -94,6 +129,9 @@ const OptionsContainer = styled.div`
 	display: flex;
 	align-items: center;
 	justify-content: space-between;
+	@media (min-width: 767px) and (max-width: 1000px) {
+		margin: 20px 0px;
+	}
 `
 
 const QuantityContainer = styled.div`

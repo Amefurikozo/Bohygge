@@ -20,6 +20,14 @@ const Container = styled.div`
 	@media (max-width: 768px) {
 		font-size: 10px;
 		width: 100vw;
+		max-width: 400px;
+		height: 35px;
+	}
+	@media (min-width: 0px) and (max-width: 399px) {
+		font-size: 10px;
+		width: 100vw;
+		max-width: 320px;
+		padding: 0px 20px;
 		height: 35px;
 	}
 `

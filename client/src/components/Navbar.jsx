@@ -7,19 +7,12 @@ import logo from '../images/logo.png'
 import { Link } from 'react-router-dom'
 import { useSelector, useDispatch } from 'react-redux'
 import { logout } from '../redux/userRedux'
-import {
-	phoneSM,
-	phoneLG,
-	tabletSM,
-	tabletMD,
-	tabletLG,
-	pcSM,
-	pcMD,
-	pcLG,
-} from '../components/Utils'
+import { clearCart } from '../redux/cartRedux'
+import MenuIcon from '@mui/icons-material/Menu'
 
 const Container = styled.div`
 	height: 70px;
+	margin: 0px 5px;
 `
 const Wrapper = styled.div`
 	height: 70px;
@@ -100,7 +93,75 @@ const MenuLink = styled.div`
 	padding: 0px 10px;
 	width: fit-content;
 	height: 40px;
-	${tabletSM({ fontSize: '12px', margin: '0px' })}
+	@media (max-width: 768px) {
+		font-size: 12px;
+	}
+`
+const StyledUl = styled.ul`
+	list-style-type: none;
+	margin: 0;
+	padding: 0;
+	overflow: hidden;
+	background-color: #000;
+	z-index: 100;
+	> :not(:nth-child(2)) {
+		cursor: pointer;
+	}
+`
+
+const StyledLi = styled.li`
+	float: left;
+	cursor: default;
+`
+
+const Dropbtn = styled.div`
+	display: flex;
+	color: white;
+	text-align: center;
+	padding: 10px 10px;
+	text-decoration: none;
+`
+
+const DropDownContent = styled.div`
+	display: none;
+	position: absolute;
+	background-color: #f9f9f9;
+	min-width: 160px;
+	box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+	z-index: 1;
+`
+
+const DropDownLi = styled(StyledLi)`
+	display: inline-block;
+	&:hover {
+		background-color: #565656;
+	}
+	&:hover ${DropDownContent} {
+		display: block;
+	}
+`
+
+const StyledA = styled.a`
+	display: inline-block;
+	color: white;
+	text-align: center;
+	padding: 14px 16px;
+	text-decoration: none;
+	&:hover {
+		background-color: #565656;
+	}
+`
+
+const SubA = styled.a`
+	color: black;
+	padding: 12px 16px;
+	text-decoration: none;
+	display: block;
+	text-align: left;
+	cursor: pointer;
+	&:hover {
+		background-color: #eaeaea;
+	}
 `
 
 const Navbar = () => {
@@ -109,12 +170,59 @@ const Navbar = () => {
 	const dispatch = useDispatch()
 	const handleLogout = () => {
 		dispatch(logout())
+		dispatch(clearCart())
+	}
+
+	const handleClick = (type) => {
+		switch (type) {
+			case 'Link1':
+				window.location.replace('/products/furniture')
+				break
+			case 'Link2':
+				window.location.replace('/products/clothes')
+				break
+			case 'Link3':
+				window.location.replace('/products/decor')
+				break
+			case 'Link4':
+				window.location.replace('/products/candles')
+				break
+			case 'Link5':
+				window.location.replace('/products/art')
+				break
+			case 'Link6':
+				window.location.replace('/products/outdoors')
+				break
+			case 'Link7':
+				window.location.replace('/products/popular')
+				break
+			default:
+				type = 'Home'
+		}
 	}
 
 	return (
 		<Container>
 			<Wrapper>
 				<Left>
+					<StyledUl>
+						<DropDownLi>
+							<Dropbtn>
+								<MenuIcon />
+							</Dropbtn>
+							<DropDownContent>
+								<SubA onClick={() => handleClick('Link1')}>Furniture</SubA>
+								<SubA onClick={() => handleClick('Link2')}>Clothes</SubA>
+								<SubA onClick={() => handleClick('Link3')}>Decor</SubA>
+								<SubA onClick={() => handleClick('Link4')}>Candles</SubA>
+								<SubA onClick={() => handleClick('Link5')}>Art</SubA>
+								<SubA onClick={() => handleClick('Link6')}>Outdoors</SubA>
+								<SubA onClick={() => handleClick('Link7')}>Popular</SubA>
+								{/* <SubA onClick={() => handleClick('Link8')}>About Us</SubA>
+								<SubA onClick={() => handleClick('Link8')}>Contact</SubA> */}
+							</DropDownContent>
+						</DropDownLi>
+					</StyledUl>
 					{user.username === 'admin' && (
 						<MenuLinkAdmin>
 							<Link className="link" to="/dashboard">

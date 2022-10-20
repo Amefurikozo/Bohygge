@@ -16,7 +16,7 @@ const AdminButton = styled.button`
 	background-color: ${(props) => (props.selected ? 'black' : 'white')};
 	color: ${(props) => (props.selected ? 'white' : 'black')};
 	border: 2px solid black;
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		width: 160px;
 		font-size: 14px;
 		margin: 10px;

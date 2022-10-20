@@ -11,6 +11,19 @@ export const getProducts = async (dispatch) => {
 	}
 }
 
+export const filteredProducts = async (id, dispatch) => {
+	dispatch(getProductStart())
+	if (id) {
+		const res = await publicRequest.get(`products/filter/${id.toUpperCase()}`)
+
+		if (res.data) {
+			dispatch(getProductSuccess(res.data))
+		}
+	} else {
+		getProducts(dispatch)
+	}
+}
+
 export const deleteProduct = async (id, dispatch) => {
 	dispatch(deleteProductStart())
 	try {

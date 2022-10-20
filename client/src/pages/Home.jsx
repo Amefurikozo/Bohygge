@@ -13,7 +13,6 @@ const Home = () => {
 			<CategoryCards />
 			<Products />
 			<Concepts />
-			<Divider />
 			<Footer />
 		</>
 	)

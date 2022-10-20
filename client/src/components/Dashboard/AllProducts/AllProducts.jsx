@@ -1,22 +1,38 @@
-import React from 'react'
+import React, { useState } from 'react'
 import styled from 'styled-components'
 import { useEffect } from 'react'
 import { useDispatch, useSelector } from 'react-redux'
-import { deleteProduct, getProducts } from '../../../redux/productRedux'
+import {
+	deleteProduct,
+	filteredProducts,
+	getProducts,
+} from '../../../redux/productRedux'
 import EditIcon from '@mui/icons-material/Edit'
 import DeleteIcon from '@mui/icons-material/Delete'
 import { Link } from 'react-router-dom'
+import axios from 'axios'
+import { publicRequest } from '../../Utils'
 
-const Container = styled.div``
+const Container = styled.div`
+	display: flex;
+	flex-direction: column;
+`
+const SearchInput = styled.input`
+	width: 150px;
+	padding: 5px;
+	align-self: center;
+	margin-top: 20px;
+`
+
 const FieldTitles = styled.div`
 	display: flex;
 	justify-content: center;
 	padding: 20px;
 	width: 1320px;
 	margin: auto;
-	margin-top: 10px;
+	margin-top: 20px;
 	> * {
-		width: 220px;
+		width: 200px;
 		padding: 10px;
 		font-weight: bold;
 		font-size: 20px;
@@ -25,11 +41,24 @@ const FieldTitles = styled.div`
 		text-transform: uppercase;
 		text-align: center;
 	}
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
 			display: none;
 		}
-		width: 100vw;
+		> * {
+			width: 130px;
+		}
+		width: fit-content;
+		padding: 0px;
+	}
+	@media (max-width: 390px) {
+		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
+			display: none;
+		}
+		> * {
+			width: 115px;
+		}
+		width: fit-content;
 		padding: 0px;
 	}
 `
@@ -51,27 +80,37 @@ const ProductFields = styled.div`
 	margin: auto;
 	> * {
 		padding: 5px;
-		width: 220px;
+		width: 200px;
 		padding: 10px;
 		min-height: 40px;
 		height: fit-content;
 		word-wrap: break-word;
 		text-align: center;
 	}
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
 			display: none;
 		}
 		> * {
 			width: 130px;
 		}
-		width: 100vw;
+		width: fit-content;
+	}
+	@media (max-width: 390px) {
+		> :not(:nth-child(1), :nth-child(3), :nth-child(6)) {
+			display: none;
+		}
+		> * {
+			width: 115px;
+		}
+		width: fit-content;
+		padding: 0px;
 	}
 `
 const ProductImage = styled.img`
 	height: 220px;
 	object-fit: cover;
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		height: 190px;
 	}
 `
@@ -89,7 +128,7 @@ const ProductActions = styled.div`
 	> * {
 		margin: 0px 15px;
 	}
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		> * {
 			margin: 0px 10px;
 		}
@@ -99,11 +138,17 @@ const ProductActions = styled.div`
 const Hr = styled.hr`
 	background-color: lightgray;
 	border: none;
-	width: 1280px;
+	width: 90vw;
+	max-width: 1200px;
 	height: 1px;
 	margin: 10px auto;
-	@media (max-width: 768px) {
+	@media (max-width: 1050px) {
 		width: 90vw;
+		max-width: 380px;
+	}
+	@media (max-width: 390px) {
+		width: 90vw;
+		max-width: 360px;
 	}
 `
 
@@ -119,9 +164,19 @@ const AllProducts = () => {
 		deleteProduct(id, dispatch)
 	}
 
+	const filterProducts = async (e) => {
+		const value = e.target.value
+		filteredProducts(value, dispatch)
+	}
+
 	return (
 		<>
 			<Container>
+				<SearchInput
+					type="text"
+					onChange={filterProducts}
+					placeholder="Search by ID"
+				/>
 				<FieldTitles>
 					<Image>Image</Image>
 					<Title>Title</Title>
@@ -131,29 +186,30 @@ const AllProducts = () => {
 					<Actions>Actions</Actions>
 				</FieldTitles>
 				<ProductsContainer>
-					{products.map((product, index) => (
-						<div key={product._id}>
-							<ProductFields>
-								<ProductImage src={product.img}></ProductImage>
-								<ProductTitle>{product.title}</ProductTitle>
-								<ProductId>{product._id}</ProductId>
-								<ProductPrice>{product.price}€</ProductPrice>
-								<ProductCategory>
-									{product.category.toUpperCase()}
-								</ProductCategory>
-								<ProductActions>
-									<Link className="link" to={'/product/' + product._id}>
-										<EditIcon style={{ cursor: 'pointer' }} />
-									</Link>
-									<DeleteIcon
-										style={{ cursor: 'pointer' }}
-										onClick={() => handleDelete(product._id)}
-									/>
-								</ProductActions>
-							</ProductFields>
-							<Hr />
-						</div>
-					))}
+					{products &&
+						products.map((product, index) => (
+							<div key={product._id}>
+								<ProductFields>
+									<ProductImage src={product.img}></ProductImage>
+									<ProductTitle>{product.title}</ProductTitle>
+									<ProductId>{product._id}</ProductId>
+									<ProductPrice>{product.price}€</ProductPrice>
+									<ProductCategory>
+										{product.category.toUpperCase()}
+									</ProductCategory>
+									<ProductActions>
+										<Link className="link" to={'/product/' + product._id}>
+											<EditIcon style={{ cursor: 'pointer' }} />
+										</Link>
+										<DeleteIcon
+											style={{ cursor: 'pointer' }}
+											onClick={() => handleDelete(product._id)}
+										/>
+									</ProductActions>
+								</ProductFields>
+								<Hr />
+							</div>
+						))}
 				</ProductsContainer>
 			</Container>
 		</>
