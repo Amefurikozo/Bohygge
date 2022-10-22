@@ -141,6 +141,7 @@ const DropDownLi = styled(StyledLi)`
 	}
 `
 
+/* 
 const StyledA = styled.a`
 	display: inline-block;
 	color: white;
@@ -151,6 +152,7 @@ const StyledA = styled.a`
 		background-color: #565656;
 	}
 `
+*/
 
 const SubA = styled.a`
 	color: black;

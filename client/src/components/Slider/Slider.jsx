@@ -44,17 +44,23 @@ const Img = styled.img`
 	width: 75vw;
 	height: 100%;
 	object-fit: cover;
+	@media (max-width: 1480px) {
+		width: 72vw;
+	}
 	@media (max-width: 1400px) {
 		width: 100vw;
 	}
 `
 const InfoContainer = styled.div`
-	width: 35vw;
+	width: 25vw;
 	height: 100%;
 	padding: 40px;
 	display: flex;
 	flex-direction: column;
 	justify-content: center;
+	@media (max-width: 1480px) {
+		width: 28vw;
+	}
 	@media (max-width: 1400px) {
 		display: none;
 	}
@@ -69,24 +75,27 @@ const CircleImage = styled.img`
 const Title = styled.h1`
 	font-size: 26px;
 	text-align: center;
+	font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+	font-weight: 700;
 	text-transform: uppercase;
 `
 const Desc = styled.p`
-	font-size: 18px;
+	font-size: 16px;
 	font-weight: 400;
 	text-align: justify;
 	width: 300px;
 	margin: 10px auto;
+	margin-bottom: 25px;
 `
-const Button = styled.button`
-	margin-top: 20px;
-	padding: 10px;
-	font-size: 20px;
-	font-variant: small-caps;
-	background-color: transparent;
-	cursor: pointer;
-	width: 200px;
-`
+// const Button = styled.button`
+// 	margin-top: 20px;
+// 	padding: 10px;
+// 	font-size: 20px;
+// 	font-variant: small-caps;
+// 	background-color: transparent;
+// 	cursor: pointer;
+// 	width: 200px;
+// `
 
 const Arrow = styled.div`
 	width: 40px;

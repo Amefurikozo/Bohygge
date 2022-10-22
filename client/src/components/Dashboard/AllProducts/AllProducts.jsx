@@ -198,7 +198,7 @@ const AllProducts = () => {
 										{product.category.toUpperCase()}
 									</ProductCategory>
 									<ProductActions>
-										<Link className="link" to={'/product/' + product._id}>
+										<Link className="link" to={'/updateProduct/' + product._id}>
 											<EditIcon style={{ cursor: 'pointer' }} />
 										</Link>
 										<DeleteIcon

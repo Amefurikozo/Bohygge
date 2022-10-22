@@ -13,6 +13,7 @@ import SingleProduct from './pages/SingleProduct/SingleProduct'
 import Cart from './pages/Cart/Cart'
 import { useSelector } from 'react-redux'
 import Dashboard from './pages/Dashboard'
+import UpdateProduct from './components/Dashboard/UpdateProduct/UpdateProduct'
 
 function App() {
 	const user = useSelector((state) => state.user.currentUser)
@@ -35,6 +36,16 @@ function App() {
 						path="/dashboard"
 						element={
 							user.username === 'admin' ? <Dashboard /> : <Navigate to="/" />
+						}
+					/>
+					<Route
+						path="/updateProduct/:id"
+						element={
+							user.username === 'admin' ? (
+								<UpdateProduct />
+							) : (
+								<Navigate to="/" />
+							)
 						}
 					/>
 				</Routes>
