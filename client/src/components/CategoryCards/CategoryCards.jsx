@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { categoryData } from './categoryData'
 import CategoryCard from './CategoryCard'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
-import boho from '../../images/boho2.png'
+import boho from '../../images/boho1.png'
 
 const Container = styled.div`
 	width: 100%;

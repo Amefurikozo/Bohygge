@@ -230,7 +230,7 @@ const Footer = () => {
 						>
 							Outdoors
 						</ListItem>
-						<ListItem onClick={() => window.location.replace('/products/cart')}>
+						<ListItem onClick={() => window.location.replace('/cart')}>
 							Cart
 						</ListItem>
 					</List>

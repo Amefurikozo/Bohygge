@@ -1,0 +1,37 @@
+{
+  "files": {
+    "main.css": "/static/css/main.0fd89dc3.css",
+    "main.js": "/static/js/main.8b25283e.js",
+    "static/media/login.jpg": "/static/media/login.bc6cb5888f5afa445d44.jpg",
+    "static/media/register.jpg": "/static/media/register.673264893f2ed3b292a6.jpg",
+    "static/media/concept (3).jpg": "/static/media/concept (3).c8e588e0bf10e74c4a38.jpg",
+    "static/media/art (2).jpg": "/static/media/art (2).161140156b90491e93ca.jpg",
+    "static/media/furniture (8).jpg": "/static/media/furniture (8).91f8a45182a07e9ebf54.jpg",
+    "static/media/style (7).jpg": "/static/media/style (7).400fbd32a0dcbc581b7e.jpg",
+    "static/media/concept (2).jpg": "/static/media/concept (2).986fb39da30f7bbc005c.jpg",
+    "static/media/furniture (7).jpg": "/static/media/furniture (7).61422b0a6c34a78f1f5b.jpg",
+    "static/media/style (2).jpg": "/static/media/style (2).c9a1f36044f1fa55d6e9.jpg",
+    "static/media/candles (4).jpg": "/static/media/candles (4).5c295bfd391f824250fc.jpg",
+    "static/media/outdoors (2).jpg": "/static/media/outdoors (2).6b3e601677703f2e00e7.jpg",
+    "static/media/style (4).jpg": "/static/media/style (4).2afa8d992109d6794793.jpg",
+    "static/media/concept.jpg": "/static/media/concept.9fb6fc11442a5bfe22ec.jpg",
+    "static/media/style (10).jpg": "/static/media/style (10).40ccd68b248838e23866.jpg",
+    "static/media/candles.jpg": "/static/media/candles.455607a4ade9606bc99a.jpg",
+    "static/media/furniture (6).jpg": "/static/media/furniture (6).b5f5f51eeafbf15ae589.jpg",
+    "static/media/outdoors (1).jpg": "/static/media/outdoors (1).367d93ea2e0cdeb4edf1.jpg",
+    "static/media/furniture (2).jpg": "/static/media/furniture (2).34557710ddb1d3919159.jpg",
+    "static/media/decor-dreamcatcher (3).jpg": "/static/media/decor-dreamcatcher (3).af5cc3c9a1b6c05d9bdd.jpg",
+    "static/media/decor-vase (2).jpg": "/static/media/decor-vase (2).7f4a8d37e22a97207768.jpg",
+    "static/media/boho1.png": "/static/media/boho1.b7680badc12c45bc87c6.png",
+    "static/media/logo.png": "/static/media/logo.1a0658f09f12f57bfc91.png",
+    "static/media/boho3.png": "/static/media/boho3.63508ac1cec1a051aea8.png",
+    "static/media/boho2.png": "/static/media/boho2.1c7933998ed2d77bae0b.png",
+    "index.html": "/index.html",
+    "main.0fd89dc3.css.map": "/static/css/main.0fd89dc3.css.map",
+    "main.8b25283e.js.map": "/static/js/main.8b25283e.js.map"
+  },
+  "entrypoints": [
+    "static/css/main.0fd89dc3.css",
+    "static/js/main.8b25283e.js"
+  ]
+}

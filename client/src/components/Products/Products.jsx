@@ -4,7 +4,7 @@ import styled from 'styled-components'
 import Product from './Product'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
 import axios from 'axios'
-import boho from '../../images/boho4.png'
+import boho from '../../images/boho2.png'
 
 const Container = styled.div`
 	margin: 50px 0px;
@@ -47,8 +47,8 @@ const Products = ({ sort, categoryTitle }) => {
 			try {
 				const res = await axios.get(
 					categoryTitle
-						? `http://localhost:8000/api/products?category=${categoryTitle}`
-						: 'http://localhost:8000/api/products?category=popular'
+						? `https://bohygge.herokuapp.com/api/products?category=${categoryTitle}`
+						: 'https://bohygge.herokuapp.com/api/products?category=popular'
 				)
 				setProducts(res.data)
 				// console.log('hi')

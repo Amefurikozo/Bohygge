@@ -2,7 +2,7 @@ import styled from 'styled-components'
 import { conceptsData } from './ConceptsData'
 import ConceptCard from './ConceptCard'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
-import boho from '../../images/boho5.png'
+import boho from '../../images/boho3.png'
 
 const Container = styled.div`
 	margin: 60px 0px;

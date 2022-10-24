@@ -74,7 +74,7 @@ export const Divider = () => {
 	)
 }
 
-const BASE_URL = 'http://localhost:8000/api/'
+const BASE_URL = 'https://bohygge.herokuapp.com/api/'
 const TOKEN = localStorage.getItem('ACCESS_TOKEN')
 
 // console.log(TOKEN)
