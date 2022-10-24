@@ -188,20 +188,21 @@ const Register = () => {
 				<RegisterContainer>
 					<RegisterTitle>Register</RegisterTitle>
 					<InputFields>
-						Username{' '}
+						Username
 						<Input
 							placeholder="Enter your Username."
 							onChange={(e) => setUsername(e.target.value)}
 						/>
-						Email{' '}
+						Email
 						<Input
 							placeholder="Enter your Email."
+							type="email"
 							onChange={(e) => setEmail(e.target.value)}
 						/>
-						Password{' '}
+						Password
 						<Input
 							placeholder="Enter your Password."
-							type={'password'}
+							type="password"
 							onChange={(e) => setPassword(e.target.value)}
 						/>
 					</InputFields>

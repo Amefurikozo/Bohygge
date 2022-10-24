@@ -5,7 +5,7 @@ import { publicRequest } from '../components/Utils'
 const userSlice = createSlice({
 	name: 'user',
 	initialState: {
-		currentUser: '',
+		currentUser: null,
 		isFetching: false,
 		error: false,
 	},
@@ -24,7 +24,7 @@ const userSlice = createSlice({
 		},
 		logout: (state) => {
 			state.isFetching = false
-			state.currentUser = ''
+			state.currentUser = null
 			state.error = false
 		},
 	},
@@ -34,6 +34,7 @@ export const login = async (dispatch, user) => {
 	dispatch(loginStart())
 	try {
 		const res = await publicRequest.post('/auth/login', user)
+		localStorage.setItem('ACCESS_TOKEN', res.data.accessToken)
 		dispatch(loginSuccess(res.data))
 	} catch (err) {
 		dispatch(loginFailure())

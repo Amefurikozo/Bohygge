@@ -168,7 +168,7 @@ const SubA = styled.a`
 
 const Navbar = () => {
 	const cart = useSelector((state) => state.cart)
-	const user = useSelector((state) => state.user.currentUser)
+	const user = useSelector((state) => state.user.currentUser) || {}
 	const dispatch = useDispatch()
 	const handleLogout = () => {
 		dispatch(logout())
@@ -245,7 +245,7 @@ const Navbar = () => {
 					</Center>
 				</Link>
 				<Right>
-					{user ? (
+					{user.username ? (
 						<MenuLink>
 							<Link className="link" to="/" onClick={handleLogout}>
 								LOGOUT

@@ -16,7 +16,8 @@ import Dashboard from './pages/Dashboard'
 import UpdateProduct from './components/Dashboard/UpdateProduct/UpdateProduct'
 
 function App() {
-	const user = useSelector((state) => state.user.currentUser)
+	const user = useSelector((state) => state.user.currentUser) || {}
+	console.log(user)
 
 	return (
 		<>
@@ -26,7 +27,7 @@ function App() {
 					<Route exact path="/" element={<Home />} />
 					<Route
 						path="/login"
-						element={user ? <Navigate to="/" /> : <Login />}
+						element={user.username ? <Navigate to="/" /> : <Login />}
 					/>
 					<Route path="/register" element={<Register />} />
 					<Route path="/products/:category" element={<CategoryProducts />} />

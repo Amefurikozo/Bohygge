@@ -14,6 +14,9 @@ const storeRoute = require('./routes/store')
 
 const stripeRoute = require('./routes/stripe')
 
+const path = require('path')
+app.use(express.static(path.join(__dirname + '/public')))
+
 app.use(express.json())
 app.use(cors())
 

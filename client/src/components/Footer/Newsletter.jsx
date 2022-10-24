@@ -46,8 +46,8 @@ const Input = styled.input`
 const Button = styled.button`
 	border: none;
 	width: 50px;
-	background-color: #000000;
-	color: white;
+	background-color: #ffffff;
+	color: #000000;
 	display: flex;
 	align-items: center;
 	justify-content: center;
@@ -55,7 +55,7 @@ const Button = styled.button`
 	border-radius: 0px;
 	cursor: pointer;
 	&:hover {
-		background-color: grey;
+		background-color: #ddd;
 	}
 `
 

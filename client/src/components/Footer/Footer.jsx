@@ -173,25 +173,66 @@ const Footer = () => {
 					unique you.
 				</About>
 				<Social>
-					<GitHubIcon style={{ fontSize: '34px', marginRight: '5px' }} />
-					<LinkedInIcon style={{ fontSize: '35px', marginRight: '5px' }} />
-					<FacebookIcon style={{ fontSize: '35px', marginRight: '5px' }} />
-					<InstagramIcon style={{ fontSize: '35px', marginRight: '5px' }} />
-					<EmailIcon style={{ fontSize: '35px', marginRight: '5px' }} />
+					<GitHubIcon
+						style={{ fontSize: '34px', marginRight: '5px', cursor: 'pointer' }}
+						onClick={() => window.open('https://github.com/Amefurikozo')}
+					/>
+					<LinkedInIcon
+						style={{ fontSize: '35px', marginRight: '5px', cursor: 'pointer' }}
+						onClick={() =>
+							window.open('https://www.linkedin.com/in/charilaos-giannopoulos/')
+						}
+					/>
+					<InstagramIcon
+						style={{ fontSize: '35px', marginRight: '5px', cursor: 'pointer' }}
+						onClick={() =>
+							window.open('https://www.instagram.com/betweenwinds/')
+						}
+					/>
+					<EmailIcon
+						style={{ fontSize: '35px', marginRight: '5px', cursor: 'pointer' }}
+						onClick={() => window.open('mailto:webdevcharilaosg@gmail.com')}
+					/>
 				</Social>
 			</Center>
 			<Right>
 				<SiteMap>
 					<FooterSectionTitle>SITE MAP</FooterSectionTitle>
 					<List>
-						<ListItem>Home</ListItem>
-						<ListItem>Furniture</ListItem>
-						<ListItem>Decor</ListItem>
-						<ListItem>Style</ListItem>
-						<ListItem>Candles</ListItem>
-						<ListItem>Art</ListItem>
-						<ListItem>Outdoors</ListItem>
-						<ListItem>Cart</ListItem>
+						<ListItem onClick={() => window.location.replace('/')}>
+							Home
+						</ListItem>
+						<ListItem
+							onClick={() => window.location.replace('/products/furniture')}
+						>
+							Furniture
+						</ListItem>
+						<ListItem
+							onClick={() => window.location.replace('/products/decor')}
+						>
+							Decor
+						</ListItem>
+						<ListItem
+							onClick={() => window.location.replace('/products/style')}
+						>
+							Style
+						</ListItem>
+						<ListItem
+							onClick={() => window.location.replace('/products/candles')}
+						>
+							Candles
+						</ListItem>
+						<ListItem onClick={() => window.location.replace('/products/art')}>
+							Art
+						</ListItem>
+						<ListItem
+							onClick={() => window.location.replace('/products/outdoors')}
+						>
+							Outdoors
+						</ListItem>
+						<ListItem onClick={() => window.location.replace('/products/cart')}>
+							Cart
+						</ListItem>
 					</List>
 				</SiteMap>
 			</Right>
