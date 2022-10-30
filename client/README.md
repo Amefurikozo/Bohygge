@@ -18,7 +18,7 @@ A themed eshop with content variating from furniture to clothes and art. With fo
 
 ### STYLED COMPONENTS
 
-```javascript
+```
 - Import styled from styled-components after installing the module
 - name a const with a capitalized first letter
 - assign to the variable: styled.<insert a tag key>``
@@ -58,7 +58,7 @@ const Input = styled.input`
 
 ### REDUX
 
-```javascript
+```
 file: cartRedux.js
 
 - In order to simplify the Redux Development, i highly suggest learning how to use React Toolkit
@@ -135,7 +135,7 @@ export default cartSlice.reducer
 
 ```
 
-```javascript
+```
 file: store.js
 
 - Import necessities
@@ -195,7 +195,7 @@ export let persistor = persistStore(store)
 ```
 
 
-```javascript
+```
 file: index.js
 
 - For all of the above to work on each and every child component, we have to wrap our App like this, 
@@ -223,7 +223,7 @@ root.render(
 
 ### UTILS
 
-```javascript
+```
 file: Utils.jsx
 
 - A file used to define what type of user is allowed to make the request
@@ -255,7 +255,7 @@ export const userRequest = axios.create({
 
 ### REGISTER
 
-```javascript
+```
 file: Register.jsx
 
 - As you can see, we re not importing axios anymore, we're importing our publicRequest from the Utils file we just talked about
@@ -290,7 +290,7 @@ const Register = () => {
 
 ### LOGIN
 
-```javascript
+```
 file: Login.jsx
 
 - useSelector allows you to extract data from the Redux store state, using a selector function
@@ -318,7 +318,7 @@ const Login = () => {
 	}
 
 ```
-```javascript
+```
 small part from file: userRedux.js
 
 export const login = async (dispatch, user) => {
@@ -336,7 +336,7 @@ export const login = async (dispatch, user) => {
 
 ### STRIPE
 
-```javascript
+```
 file: StripeContainer.jsx
 
 - Import Elements and wrap your form component with it
@@ -363,7 +363,7 @@ const StripeContainer = () => {
 }
 ```
 
-```javascript
+```
 file: PaymentForm.jsx
 
 - Import necessities
@@ -430,7 +430,7 @@ export default function PaymentForm() {
 ```
 
 ### FIREBASE
-```javascript
+```
 file = addProduct.jsx
 
 - Import necessities and <app> from our firebase initialize configuration
