@@ -3,6 +3,8 @@
 
 A themed eshop with content variating from furniture to clothes and art. With focus on creating a personal space where coziness & relaxation is the priority.
 
+https://bohygge.herokuapp.com/
+
 ### 🗺 FEATURES
 - Login / Register
 - Add to cart
