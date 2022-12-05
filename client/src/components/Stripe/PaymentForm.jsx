@@ -4,6 +4,7 @@ import React, { useState } from 'react'
 import BillingDetails from './BillingDetails'
 import './style.css'
 import { useSelector } from 'react-redux'
+import { userRequest } from '../Utils'
 
 const CARD_OPTIONS = {
 	iconStyle: 'solid',
@@ -54,13 +55,10 @@ export default function PaymentForm() {
 		if (!error) {
 			try {
 				const { id } = paymentMethod
-				const response = await axios.post(
-					'http://localhost:8000/api/checkout/payment',
-					{
-						amount: cart.total * 100,
-						id,
-					}
-				)
+				const response = await userRequest.post('/checkout/payment', {
+					amount: cart.total * 100,
+					id,
+				})
 
 				if (response.data.success) {
 					console.log('Successful payment')

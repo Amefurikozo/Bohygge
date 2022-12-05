@@ -65,11 +65,11 @@ const InfoContainer = styled.div`
 		display: none;
 	}
 `
-const CircleImage = styled.img`
+const SideImage = styled.img`
 	object-fit: cover;
 	width: 300px;
 	height: 250px;
-	border-radius: 10%;
+	border-radius: 5px;
 	margin: auto;
 `
 const Title = styled.h1`
@@ -83,6 +83,7 @@ const Desc = styled.p`
 	font-size: 16px;
 	font-weight: 400;
 	text-align: justify;
+	letter-spacing: -1px;
 	width: 300px;
 	margin: 10px auto;
 	margin-bottom: 25px;
@@ -162,8 +163,8 @@ const Slider = () => {
 						<InfoContainer>
 							<Title>{item.title}</Title>
 							<Desc>{item.desc}</Desc>
-							<CircleImage src={item.sideimg1}></CircleImage>
-							<CircleImage src={item.sideimg2}></CircleImage>
+							<SideImage src={item.sideimg1}></SideImage>
+							<SideImage src={item.sideimg2}></SideImage>
 						</InfoContainer>
 					</Slide>
 				))}

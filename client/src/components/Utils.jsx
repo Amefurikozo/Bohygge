@@ -74,10 +74,12 @@ export const Divider = () => {
 	)
 }
 
-const BASE_URL = 'https://bohygge.herokuapp.com/api/'
+// "http://localhost:8000/api"
+const BASE_URL = window.location.origin + '/api'
 const TOKEN = localStorage.getItem('ACCESS_TOKEN')
 
 // console.log(TOKEN)
+// console.log(BASE_URL)
 
 export const publicRequest = axios.create({
 	baseURL: BASE_URL,

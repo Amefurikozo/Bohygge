@@ -3,8 +3,9 @@ import styled from 'styled-components'
 // import { ProductsData } from './ProductsData'
 import Product from './Product'
 import { SectionTitle } from '../SectionTitle/SectionTitle'
-import axios from 'axios'
+// import axios from 'axios'
 import boho from '../../images/boho2.png'
+import { publicRequest } from '../Utils'
 
 const Container = styled.div`
 	margin: 50px 0px;
@@ -45,10 +46,10 @@ const Products = ({ sort, categoryTitle }) => {
 	useEffect(() => {
 		const getProducts = async () => {
 			try {
-				const res = await axios.get(
+				const res = await publicRequest.get(
 					categoryTitle
-						? `https://bohygge.herokuapp.com/api/products?category=${categoryTitle}`
-						: 'https://bohygge.herokuapp.com/api/products?category=popular'
+						? `/products?category=${categoryTitle}`
+						: '/products?category=popular'
 				)
 				setProducts(res.data)
 				// console.log('hi')
